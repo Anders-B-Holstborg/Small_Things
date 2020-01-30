@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  ALLOWED_DAYS = %w[Monday Tuesday Wednesday Thursday Friday Saturday Sunday].freeze
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -6,4 +7,5 @@ class User < ApplicationRecord
   validates :name, presence: true
   validates :address, presence: true
   validates :time_of_sending, presence: true
+  validates :preferred_day, inclusion: { in: ALLOWED_DAYS }
 end
