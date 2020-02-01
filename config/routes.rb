@@ -5,7 +5,11 @@ Rails.application.routes.draw do
   resources :categories
   resources :category_users
   resources :reviews
-  resources :bookings
+
+  resources :bookings do
+    resources :reviews, only: [ :new, :create ]
+  end
+
   get 'dashboard', to: 'users#dashboard'
   root to: 'users#dashboard'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
