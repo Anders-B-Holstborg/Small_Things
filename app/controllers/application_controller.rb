@@ -4,11 +4,9 @@ class ApplicationController < ActionController::Base
 
   def configure_permitted_parameters
     # For additional fields in app/views/devise/registrations/new.html.erb
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:time_of_sending])
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:prefered_day])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :time_of_sending, :prefered_day, :photo])
 
     # For additional in app/views/devise/registrations/edit.html.erb
-    devise_parameter_sanitizer.permit(:account_update, keys: [:name])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:name, :time_of_sending, :prefered_day, :photo])
   end
 end
