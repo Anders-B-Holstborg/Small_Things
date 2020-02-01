@@ -5,8 +5,9 @@ class UsersController < ApplicationController
   end
 
   def new
-    if current_user?
+    if current_user
       redirect_to #Dashboard, to be implemented
+    end
   end
 
   def create
