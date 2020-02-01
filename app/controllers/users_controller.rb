@@ -1,8 +1,12 @@
 class UsersController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:new, :create]
+
   def index
   end
 
   def new
+    if current_user?
+      redirect_to #Dashboard, to be implemented
   end
 
   def create
@@ -18,5 +22,9 @@ class UsersController < ApplicationController
   end
 
   def delete
+  end
+
+  def dashboard
+
   end
 end
