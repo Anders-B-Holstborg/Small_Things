@@ -8,4 +8,8 @@ class User < ApplicationRecord
   validates :address, presence: true
   validates :time_of_sending, presence: true
   validates :preferred_day, inclusion: { in: ALLOWED_DAYS }
+  has_many :activities
+  has_many :bookings
+  has_many :category_users
+  has_many :reviews
 end
