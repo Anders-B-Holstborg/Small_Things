@@ -16,6 +16,10 @@ class ActivitiesController < ApplicationController
     end
   end
 
+  def show
+    @activity = find_activity
+  end
+
   def edit
     @activity = find_activity
   end
@@ -27,10 +31,6 @@ class ActivitiesController < ApplicationController
     else
       render :new
     end
-  end
-
-  def show
-    @activity = find_activity
   end
 
   def delete
