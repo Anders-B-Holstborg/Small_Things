@@ -1,7 +1,4 @@
 class ReviewsController < ApplicationController
-  def index
-  end
-
   def new
   end
 
@@ -12,9 +9,6 @@ class ReviewsController < ApplicationController
   end
 
   def update
-  end
-
-  def show
   end
 
   def delete
