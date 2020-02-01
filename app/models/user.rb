@@ -5,6 +5,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   validates :name, presence: true
+  validates :time_of_sending, presence: true
+  validates :prefered_day, presence: true
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
   has_many :activities
