@@ -27,6 +27,7 @@
                 hint: "let us know at which time you want to receive your daily notif! 😉" %>
     <%= f.input :preferred_day,
                 required: true,
+                collection: (0..6).to_a.map{|j| [(Date.today + j.days).strftime("%A"), (Date.today + j.days).to_s ]  },
                 hint: "let us know which day you have the most free time! 😉" %>
   </div>
   <div class="form-inputs">
