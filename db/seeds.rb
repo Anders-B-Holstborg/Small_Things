@@ -8,7 +8,7 @@ puts "Creating users..."
 end
 puts "#{User.count} users added!"
 
-category_titles = %w["Reading", "Sports", "Lifestyle", "Culture", "Human Contact"]
+category_titles = %w["Reading", "Sports", "Lifestyle", "Culture", "Human Contact", "Family"]
 
 puts "Creating categories..."
 category_titles.each do |title|
