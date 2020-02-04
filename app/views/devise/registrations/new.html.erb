@@ -25,11 +25,13 @@
     <%= f.input :time_of_sending,
                 required: true,
                 hint: "let us know at which time you want to receive your daily notif! 😉" %>
-    <%= f.input :prefered_day,
+    <%= f.input :preferred_day,
                 required: true,
                 hint: "let us know which day you have the most free time! 😉" %>
   </div>
-
+  <div class="form-inputs">
+      <%= f.input :photo, as: :file %>
+  </div>
   <div class="form-actions">
     <%= f.button :submit, "Sign up" %>
   </div>
