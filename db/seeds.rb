@@ -1,9 +1,11 @@
+require 'faker'
+
+date_time_parse = ["2020-02-04 18:25:00", "2020-02-04 18:00:00", "2020-02-04 20:40:00", "2020-02-04 08:35:00", "2020-02-04 12:12:00", "2020-02-04 00:00:00", "2020-02-04 16:50:00"]
+
 puts "Creating users..."
-User.create(name: 'dethstriker666', email: "timmy@gmail.com", time_of_sending: Date.parse("2020-02-04 18:25:00"), password: "123456", password_confirmation: '123456')
-User.create(name: 'Sammy G', email: "sammy.g@gmail.com", time_of_sending: Date.parse("2020-02-04 15:00:00"), password: "123456", password_confirmation: '123456')
-User.create(name: 'Emily Watford', email: "emilyw@atford.com", time_of_sending: Date.parse("2020-02-04 08:00:00"), password: "123456", password_confirmation: '123456')
-User.create(name: 'TheExpendableWombat', email: "wombat@gmail.au", time_of_sending: Date.parse("2020-02-04 20:40:00"), password: "123456", password_confirmation: '123456')
-User.create(name: 'Bill', email: "bill.hendricks@gloustershire.uk", time_of_sending: Date.parse("2020-02-04 12:00:00"), password: "123456", password_confirmation: '123456')
+10.times do
+  User.create(name: Faker::Name.name, email: Faker::Internet.email, time_of_sending: Date.parse(date_time_parse.sample), password: "123456", password_confirmation: '123456')
+end
 puts "#{User.count} users added!"
 
 category_titles = %w["Reading", "Sports", "Lifestyle", "Culture", "Human Contact"]
