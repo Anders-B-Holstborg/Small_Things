@@ -96,10 +96,10 @@ ActiveRecord::Schema.define(version: 2020_02_01_154424) do
     t.datetime "updated_at", null: false
     t.string "name"
     t.string "address"
+    t.datetime "time_of_sending"
+    t.datetime "preferred_day"
     t.float "latitude"
     t.float "longitude"
-    t.datetime "time_of_sending"
-    t.datetime "prefered_day"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
