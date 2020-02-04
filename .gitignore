@@ -10,6 +10,7 @@
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*
+!/tmp/pids/
 !/log/.keep
 !/tmp/.keep
 
@@ -39,3 +40,4 @@ yarn-debug.log*
 # Ignore Mac and Linux file system files
 *.swp
 .DS_Store
+.env*

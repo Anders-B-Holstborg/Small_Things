@@ -1,4 +1,4 @@
-<h2>Yoo</h2>
+<h2>Sign Up</h2>
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= f.error_notification %>
@@ -18,6 +18,16 @@
     <%= f.input :password_confirmation,
                 required: true,
                 input_html: { autocomplete: "new-password" } %>
+  </div>
+
+  <h5>Please tell us more about you to have a Customized experienced</h5>
+  <div class="form-inputs">
+    <%= f.input :time_of_sending,
+                required: true,
+                hint: "let us know at which time you want to receive your daily notif! 😉" %>
+    <%= f.input :prefered_day,
+                required: true,
+                hint: "let us know which day you have the most free time! 😉" %>
   </div>
 
   <div class="form-actions">
