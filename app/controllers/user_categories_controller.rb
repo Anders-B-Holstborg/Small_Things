@@ -1,6 +1,6 @@
 class UserCategoriesController < ApplicationController
   def index
-    user_categories
+    @user_categories = UserCategories.all
   end
 
   def new
