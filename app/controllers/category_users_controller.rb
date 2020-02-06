@@ -1,5 +1,6 @@
-class CategoryUsersController < ApplicationController
+class UserCategoriesController < ApplicationController
   def index
+    user_categories
   end
 
   def new
@@ -15,8 +16,5 @@ class CategoryUsersController < ApplicationController
   end
 
   def show
-  end
-
-  def delete
   end
 end

@@ -1,6 +1,6 @@
-class CreateCategoryUsers < ActiveRecord::Migration[5.2]
+class CreateUserCategories < ActiveRecord::Migration[5.2]
   def change
-    create_table :category_users do |t|
+    create_table :user_categories do |t|
       t.references :user, foreign_key: true
       t.references :category
       t.boolean :user_category_preference
