@@ -1,6 +1,7 @@
 class UserCategoriesController < ApplicationController
   def index
-    @user_categories = UserCategories.all
+    @my_categories = UserCategory.where(user_category_preference: true)
+    @other_categories = UserCategory.where(user_category_preference: false)
   end
 
   def new
