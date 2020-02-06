@@ -12,6 +12,6 @@ class User < ApplicationRecord
   has_one_attached :photo
   has_many :activities
   has_many :bookings
-  has_many :category_users
+  has_many :user_categories
   has_many :reviews
 end

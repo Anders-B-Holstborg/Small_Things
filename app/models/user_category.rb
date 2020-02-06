@@ -1,4 +1,4 @@
-class CategoryUser < ApplicationRecord
+class UserCategory < ApplicationRecord
   belongs_to :user
   belongs_to :category
   validates :user_category_preference, presence: true

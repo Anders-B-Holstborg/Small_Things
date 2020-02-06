@@ -63,18 +63,6 @@ ActiveRecord::Schema.define(version: 2020_02_01_154424) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "category_users", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "category_id"
-    t.boolean "user_category_preference"
-    t.integer "time_length_preference"
-    t.integer "offered_counter"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["category_id"], name: "index_category_users_on_category_id"
-    t.index ["user_id"], name: "index_category_users_on_user_id"
-  end
-
   create_table "reviews", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "booking_id"
@@ -84,6 +72,18 @@ ActiveRecord::Schema.define(version: 2020_02_01_154424) do
     t.datetime "updated_at", null: false
     t.index ["booking_id"], name: "index_reviews_on_booking_id"
     t.index ["user_id"], name: "index_reviews_on_user_id"
+  end
+
+  create_table "user_categories", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "category_id"
+    t.boolean "user_category_preference"
+    t.integer "time_length_preference"
+    t.integer "offered_counter"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_user_categories_on_category_id"
+    t.index ["user_id"], name: "index_user_categories_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -109,7 +109,8 @@ ActiveRecord::Schema.define(version: 2020_02_01_154424) do
   add_foreign_key "activities", "users"
   add_foreign_key "bookings", "activities"
   add_foreign_key "bookings", "users"
-  add_foreign_key "category_users", "users"
   add_foreign_key "reviews", "bookings"
   add_foreign_key "reviews", "users"
+  add_foreign_key "user_categories", "categories"
+  add_foreign_key "user_categories", "users"
 end
