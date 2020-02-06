@@ -2,9 +2,9 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :activities
-  resources :categories
-  resources :category_users
-  resources :reviews
+  resources :categories do
+    resources :user_categories, only: [ :new, :create, :edit, :update, :index, :show ]
+  end
 
   resources :bookings do
     resources :reviews, only: [ :new, :create ]

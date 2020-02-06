@@ -1,0 +1,5 @@
+<%= simple_form_for [@category, @my_category] do |f| %>
+  <p><%= f.input :user_category_preference %></p>
+  <p><%= f.input :time_length_preference %></p>
+<%= f.submit %>
+<% end %>
