@@ -17,8 +17,11 @@ border-radius : 50px;
 }
 
 .btn {
-  border-radius: 10%;
+  box-shadow:inset 0px 1px 0px 0px #efdcfb;
+  background:linear-gradient(to bottom, #dfbdfa 5%, #bc80ea 100%);
+  background-color:#dfbdfa;
   color: white;
+  border-radius: 10%;
   padding: 15px 32px;
   text-align: center;
   text-decoration: $purple;
