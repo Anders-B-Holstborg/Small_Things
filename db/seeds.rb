@@ -14,8 +14,8 @@ puts "Creating users..."
 end
 puts "#{User.count - 1} users added!"
 
-#  Lifestyle Culture Human-Contact Family Learning
-category_titles = %w[Reading Sports Culture]
+# Family Learning
+category_titles = %w[Reading Sports Culture Lifestyle Human]
 
 activities = {
   Reading: [
@@ -32,6 +32,17 @@ activities = {
     { title: "Theatre", description: "A few theatres nearby are doing shows. Time to see one of them!", duration: 120 },
     { title: "Arts Exhibition", description: "There is a gallery nearby. Give it a check-out!", duration: 60 },
     { title: "Comics", description: "Read a classic comic of your choice", duration: 30 }
+  ],
+  Lifestyle: [
+    { title: "Meditation", description: "Find a calm and floofy spot to sit down and attempt to clear your mind for half an hour.", duration: 30 },
+    { title: "Niche Cooking", description: "Whip up a healthy dish that you've been wanting to do for a while.", duration: 60 },
+    { title: "Rearrange the Home", description: "Think about something in your home that you would like to change, and do it!", duration: 30 }
+  ],
+  Human: [
+    { title: "Call Relative", description: "Call a relative you have not had contact with in a while.", duration: 20 },
+    { title: "Contact a Stranger", description: "Conduct a conversation with someone you have never met or talked to before", duration: 5 },
+    { title: "Fight Club Homework", description: "I want you to go out there. I want you to get in a fight with a stranger.
+      And I want you to lose.", duration: 10 }
   ]
 }
 
