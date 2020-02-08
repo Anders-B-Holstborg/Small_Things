@@ -17,14 +17,12 @@ border-radius : 50%;
 }
 
 .btn {
-  box-shadow:inset 0px 1px 0px 0px #efdcfb;
-  background:linear-gradient(to bottom, #dfbdfa 5%, #bc80ea 100%);
-  background-color:#dfbdfa;
-  color: white;
-  border-radius: 10%;
+  background-color: white;
+  color: #1A0937;
+  border-radius: 12%;
   padding: 15px 32px;
   text-align: center;
-  text-decoration: $purple;
+  text-decoration: #1A0937;
   display: inline-block;
   font-size: 16px;
   margin: 4px 2px;
@@ -36,6 +34,6 @@ border-radius : 50%;
 }
 
 .btn a {
-  color: black;
+  color: #0c7b93;
 }
 
