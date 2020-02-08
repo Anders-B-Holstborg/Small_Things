@@ -2,11 +2,14 @@ require 'faker'
 
 date_time_parse = ["2020-02-04 18:25:00", "2020-02-04 18:00:00", "2020-02-04 20:40:00", "2020-02-04 08:35:00", "2020-02-04 12:12:00", "2020-02-04 00:00:00", "2020-02-04 16:50:00"]
 
+User.create!(name: "admin", email: "admin@admin.admin", time_of_sending: Date.parse(date_time_parse.sample), password: "123456", password_confirmation: '123456')
+puts "Admin added!"
+
 puts "Creating users..."
 10.times do
   User.create!(name: Faker::Name.name, email: Faker::Internet.email, time_of_sending: Date.parse(date_time_parse.sample), password: "123456", password_confirmation: '123456')
 end
-puts "#{User.count} users added!"
+puts "#{User.count - 1} users added!"
 
 #  Lifestyle Culture Human-Contact Family Learning
 category_titles = %w[Reading Sports Culture]
