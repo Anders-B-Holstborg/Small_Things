@@ -4,7 +4,10 @@ class UsersController < ApplicationController
   end
 
   def dashboard
-    @user = current_user
+    if current_user
+      @user = current_user
+    else
+      redirect_to new_user_registration_path
+    end
   end
-
 end
