@@ -6,3 +6,13 @@
     border: 3px solid black;
   }
 }
+
+
+#box-dashboard {
+  padding: 30px;
+  border: 1px solid black;
+  justify-content: center;
+  &:hover {
+    border: 3px solid black;
+  }
+}
