@@ -1,2 +1,19 @@
-<h1>Activities#index</h1>
-<p>Find me in app/views/activities/index.html.erb</p>
+<div class="container">
+  <h1>Activities:</h1>
+  <% @categories.each do |category| %> <!-- Begin iteration -->
+    <h2><i><%= category.title %> :</i></h2>
+    <div class="card-deck">
+    <% category.activities.each do |activity| %> <!-- Begin iteration -->
+      <div class="card my-3">
+        <%= image_tag "sport.jpeg", id:"img-size", class: "card-img-top" %>
+        <div class="card-body">
+          <h4 class="card-title"><%= activity.title %></h4>
+          <p class="card-text"><%= activity.description %></p>
+          <p class="card-text">Duration: <br><%= activity.duration %> minutes.</p>
+          <button class="btn btn-primary" type="button">Button</button>
+        </div>
+      </div>
+    <% end %> <!-- end of iteration -->
+  </div>
+  <% end %> <!-- end of iteration -->
+</div>

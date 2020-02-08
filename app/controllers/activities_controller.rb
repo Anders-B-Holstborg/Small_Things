@@ -1,5 +1,6 @@
 class ActivitiesController < ApplicationController
   def index
+    @categories = Category.all
     @activities = Activity.all
   end
 
