@@ -7,7 +7,7 @@ puts "Admin added!"
 
 puts "Creating users..."
 10.times do
-  User.create!(name: Faker::Name.name, email: Faker::Internet.email, time_of_sending: Date.parse(date_time_parse.sample), password: "123456", password_confirmation: '123456')
+  User.create!(name: Faker::Name.name, email: Faker::Internet.email, time_of_sending: Date.parse(date_time_parse.sample), password: "123456", password_confirmation: '123456', photo: "BanderasKitty.jpg")
 end
 puts "#{User.count - 1} users added!"
 

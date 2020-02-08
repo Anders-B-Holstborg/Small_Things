@@ -17,10 +17,13 @@
         </li>
         <li class="nav-item dropdown">
           <div class="userimg">
-          <%= cl_image_tag current_user.photo.key, id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <% if current_user.photo.key %>
+              <%= cl_image_tag current_user.photo.key, id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <% else %>
+              <%= cl_image_tag logo_old.png, id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <% end %>
           </div>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-
             </div>
           </li>
       <% else %>
