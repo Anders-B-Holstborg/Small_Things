@@ -17,7 +17,7 @@
         </li>
         <li class="nav-item dropdown">
           <div class="userimg">
-          <%= cl_image_tag @user.photo.key, id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <%= cl_image_tag current_user.photo.key, id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           </div>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
 
