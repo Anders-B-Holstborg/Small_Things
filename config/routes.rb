@@ -3,9 +3,9 @@ Rails.application.routes.draw do
 
   resources :activities
   resources :categories do
-    resources :user_categories, only: [ :new, :create, :edit, :update, :index, :show ]
+    resources :user_categories, only: [ :edit, :update, :index, :show ]
   end
-
+  resources :user_categories, only: [ :new, :create ]
   resources :bookings do
     resources :reviews, only: [ :new, :create ]
   end

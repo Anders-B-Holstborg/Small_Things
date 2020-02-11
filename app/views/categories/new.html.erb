@@ -1,6 +1,6 @@
 
-<%= simple_form_for @category do |f| %>
+<%= simple_form_for @user_category do |f| %>
   <%= f.error_notification %>
-  <%= f.collection_select(:title, Category.all, :id, :title, prompt: true) %>
+  <%= f.collection_check_boxes :category,  @categories , :id,   :title %>
   <%= f.button :submit %>
 <% end %>
