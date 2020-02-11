@@ -7,11 +7,12 @@ puts "Admin added!"
 
 puts "Creating users..."
 10.times do
-  user = User.create!(name: Faker::Name.name, email: Faker::Internet.email, time_of_sending: Date.parse(date_time_parse.sample), password: "123456",
+  user = User.create!(name: Faker::Name.name, email: Faker::Internet.unique.email, time_of_sending: Date.parse(date_time_parse.sample), password: "123456",
     password_confirmation: '123456')
   user.photo.attach(io: File.open('/home/anders/code/Jarmam-Productions/Small_Things/app/assets/images/placeholder_profile_pic.jpg'),
     filename: 'file.jpg')
 end
+Faker::UniqueGenerator.clear # Clears used values for all generators
 puts "#{User.count - 1} users added!"
 
 # Family Learning
@@ -41,7 +42,7 @@ activities = {
   Human: [
     { title: "Call Relative", description: "Call a relative you have not had contact with in a while.", duration: 20 },
     { title: "Contact a Stranger", description: "Conduct a conversation with someone you have never met or talked to before", duration: 5 },
-    { title: "Fight Club Homework", description: "I want you to go out there. I want you to get in a fight with a stranger.
+    { title: "Fight Club Homework", description: "I want you to go out there. I want you to get into a fight with a stranger.
       And I want you to lose.", duration: 10 }
   ]
 }
