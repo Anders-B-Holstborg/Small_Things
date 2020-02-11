@@ -1,2 +1,11 @@
-<h1>Activities#show</h1>
-<p>Find me in app/views/activities/show.html.erb</p>
+<div class="container">
+  <h1> <%= @activity.title %></h1>
+    <div class="card my-3">
+      <%= cl_image_tag @activity.photo.key if @activity.photo.attached? %>
+      <div class="card-body">
+        <p class="card-text"> <%= @activity.description %></p>
+        <p class="card-text"> <%= @activity.duration %></p>
+        <button class="btn btn-primary" type="button">Button</button>
+      </div>
+    </div>
+</div>

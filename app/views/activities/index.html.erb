@@ -5,7 +5,11 @@
     <div class="card-deck">
     <% category.activities.each do |activity| %> <!-- Begin iteration -->
       <div class="card my-3">
-        <%= image_tag "sport.jpeg", id:"img-size", class: "card-img-top" %>
+        <% if activity.photo.attached? %>
+           <%= cl_image_tag activity.photo.key %>
+        <% else %>
+          <%= image_tag "sport.jpeg", id:"img-size", class: "card-img-top" %>
+        <% end %>
         <div class="card-body">
           <h4 class="card-title"><%= activity.title %></h4>
           <p class="card-text"><%= activity.description %></p>

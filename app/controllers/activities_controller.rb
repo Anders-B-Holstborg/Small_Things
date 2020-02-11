@@ -1,6 +1,6 @@
 class ActivitiesController < ApplicationController
   def index
-    @categories = Category.all
+    @categories = Category.all.reverse
     @activities = Activity.all
   end
 
@@ -10,6 +10,7 @@ class ActivitiesController < ApplicationController
 
   def create
     @activity = Activity.new(activity_params)
+    @activity.category = Category.find(1)
     if @activity.save
       redirect_to activity_path(@activity)
     else
@@ -40,11 +41,11 @@ class ActivitiesController < ApplicationController
   private
 
   def activity_params
-    updated_params = params.require(:activity).permit(:description, :duration)
+    updated_params = params.require(:activity).permit(:description, :duration, :photo)
     final_params = updated_params.merge(user_id: current_user.id)
   end
 
   def find_activity
-    @activity = Activity.where(id: params[:id])
+    @activity = Activity.find(params[:id])
   end
 end
