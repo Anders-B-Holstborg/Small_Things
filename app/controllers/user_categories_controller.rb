@@ -28,6 +28,7 @@ class UserCategoriesController < ApplicationController
   end
 
   def update
+    @available = Categories.all
   end
 
   private
