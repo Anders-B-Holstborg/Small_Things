@@ -41,7 +41,7 @@ class ActivitiesController < ApplicationController
   private
 
   def activity_params
-    updated_params = params.require(:activity).permit(:description, :duration, :photo)
+    updated_params = params.require(:activity).permit(:title, :description, :duration, :photo)
     final_params = updated_params.merge(user_id: current_user.id)
   end
 
