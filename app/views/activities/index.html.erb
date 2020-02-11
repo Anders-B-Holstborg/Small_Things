@@ -14,7 +14,7 @@
           <h4 class="card-title"><%= activity.title %></h4>
           <p class="card-text"><%= activity.description %></p>
           <p class="card-text">Duration: <br><%= activity.duration %> minutes.</p>
-          <button class="btn btn-primary" type="button">Button</button>
+          <button class="btn btn-primary"><%= link_to "See activity", activity_path(activity) %></button>
         </div>
       </div>
     <% end %> <!-- end of iteration -->
