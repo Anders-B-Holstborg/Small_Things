@@ -43,7 +43,7 @@ activities = {
   Human: [
     { title: "Call Relative", description: "Call a relative you have not had contact with in a while.", duration: 20 },
     { title: "Contact a Stranger", description: "Conduct a conversation with someone you have never met or talked to before", duration: 5 },
-    { title: "Fight Club Homework", description: "I want you to go out there. I want you to get into a fight with a stranger. And I want you to lose.", duration: 10 }
+    { title: "Fight Club Homework", description: "I want you to go out there. I want you to get into a fight with a stranger. And I want you to lose.", duration: 30 }
   ]
 }
 
