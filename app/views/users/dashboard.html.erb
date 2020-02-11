@@ -15,7 +15,7 @@
       <h4>User name :  <%=@current_user.name %> </h4>
       <h4>User address :  <%=@current_user.address %> </h4>
       <h4>Member since :  <%=@current_user.created_at.strftime("%Y, %B %d") %> </h4>
-      <h4>Prefered day :  <%=@current_user.preferred_day.strftime("%A") %> </h4>
+      <h4>Prefered day :  <%=@current_user.preferred_day %> </h4>
     </div>
   </div>
       <br>
@@ -34,21 +34,17 @@
 <div id="feed" class="col-sm">
   <div id="activity_card" class="card flex-row flex-wrap">
     <%= image_tag "sports_logo.png" , height: '42', width: '42'%>
-  <div class="card-block px-2">
+  <div class="card-block">
     <p>"Playing Ping Pong with a colleague"</p>
     <p>Category : Sports</p>
     <p>Date : DD/MM/YYYY</p>
     <span class="badge badge-success">DONE</span>
   </div>
-  <br>
 </div>
-
-
-</div>
+<div>
+<div>
   <footer class="container-fluid text-center">
     <p>Footer Text</p>
   </footer>
-</div>
-
-
+  </div>
 </div>
