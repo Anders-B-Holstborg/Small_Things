@@ -2,5 +2,6 @@
 <%= simple_form_for @user_category do |f| %>
   <%= f.error_notification %>
   <%= f.collection_check_boxes :category,  @categories , :id,   :title %>
+  <%= f.input :time_length_preference %>
   <%= f.button :submit %>
 <% end %>

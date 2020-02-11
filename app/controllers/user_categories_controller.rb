@@ -17,8 +17,6 @@ class UserCategoriesController < ApplicationController
       end
       redirect_to dashboard_path
     else
-
-
       @user_category = UserCategory.new(user_category_params)
       if @user_category.save
         redirect_to category_user_category_path(@user_category.category, @user_category)

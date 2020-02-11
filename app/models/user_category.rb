@@ -1,8 +1,7 @@
 class UserCategory < ApplicationRecord
   belongs_to :user
   belongs_to :category
-  validates :user_category_preference, presence: true
-  validates :time_length_preference, numericality: { greater_than_or_equal_to: 0 }
+  #validates :time_length_preference, presence: false
 
   private
 
