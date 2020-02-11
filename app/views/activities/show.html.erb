@@ -3,7 +3,7 @@
   <h1> <%= @activity.title %></h1>
       <%= cl_image_tag @activity.photo.key if @activity.photo.attached? %>
       <div class="card-body">
-        <p class="card-text"> <%= @activity.description %> why not</p>
+        <p class="card-text"> <%= @activity.description %></p>
         <% if @activity.duration > 1 %>
           <p class="card-text"> <%= @activity.duration %> minutes.</p>
         <% else %>
