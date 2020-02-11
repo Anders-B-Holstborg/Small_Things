@@ -3,6 +3,8 @@
     <div class="col-sm-4">
       <button class="btn"><%= link_to "View Categories", categories_path %></button>
       <button class="btn"><%= link_to "Choose Categories", new_category_path %></button>
+      <br>
+      <button class="btn"><%= link_to "Create activity!", new_activity_path %></button>
       <p><a href="#">Link</a></p>
       <p><a href="#">Link</a></p>
     </div>
@@ -12,11 +14,12 @@
 
 <div id="box-dashboard">
   <div class="row justify-content-center">
-    <div id="profile_dashboard"> <%= cl_image_tag @user.photo.key %></div>
-      <h4>User name :  <%=@current_user.name %> </h4>
-      <h4>User address :  <%=@current_user.address %> </h4>
-      <h4>Member since :  <%=@current_user.created_at.strftime("%Y, %B %d") %> </h4>
-      <h4>Prefered day :  <%=@current_user.preferred_day.strftime("%A") %> </h4>
+
+    <div id="profile_dashboard"> <%= cl_image_tag @user.photo.key if @user.photo.attached? %></div>
+      <h4>User name :  <%= @current_user.name %> </h4>
+      <h4>User address :  <%= @current_user.address %> </h4>
+      <h4>Member since :  <%= @current_user.created_at.strftime("%Y, %B %d") %> </h4>
+      <h4>Preferred day :  <%= @current_user.preferred_day.strftime("%A") if @current_user.preferred_day %> </h4>
     </div>
   </div>
       <br>
@@ -35,21 +38,17 @@
 <div id="feed" class="col-sm">
   <div id="activity_card" class="card flex-row flex-wrap">
     <%= image_tag "sports_logo.png" , height: '42', width: '42'%>
-  <div class="card-block px-2">
+  <div class="card-block">
     <p>"Playing Ping Pong with a colleague"</p>
     <p>Category : Sports</p>
     <p>Date : DD/MM/YYYY</p>
     <span class="badge badge-success">DONE</span>
   </div>
-  <br>
 </div>
-
-
-</div>
+<div>
+<div>
   <footer class="container-fluid text-center">
     <p>Footer Text</p>
   </footer>
-</div>
-
-
+  </div>
 </div>
