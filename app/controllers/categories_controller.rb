@@ -1,10 +1,12 @@
 class CategoriesController < ApplicationController
   def index
     @categories = Category.all
+    @category = Category.new
   end
 
   def new
-    @category = Category.new
+    @categories = Category.all
+    @user_category = UserCategory.new
   end
 
   def create
@@ -21,7 +23,8 @@ class CategoriesController < ApplicationController
   end
 
   def edit
-    @category = find_category
+    @categories = Category.all
+    @category = Category.new
   end
 
   def update
