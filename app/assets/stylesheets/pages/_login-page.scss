@@ -102,3 +102,57 @@
 body.loginpage {
   background-color: #f6e5f5;
 }
+
+
+.umumi span {
+  color: white;
+  display: block;
+  text-transform: uppercase;
+}
+.umumi span {
+  color: white;
+  display: block;
+}
+
+.umumi {
+  text-align: center;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  color: transparent;
+}
+.text1 {
+  /*margin-bottom: 40px;*/
+  background-color: #7e0cf5;
+  width: 100%;
+  font-size: 35px;
+  letter-spacing: 5px;
+  position: relative;
+  animation: text 3s 1;
+  font-weight: 700;
+  margin-top: 40px;
+}
+.text2 {
+  font-size: 25px;
+  color: black !important;
+  font-weight: 700;
+  letter-spacing: 8px;
+}
+@keyframes text {
+  0%
+  {
+    color: black;
+    margin-bottom: -40px;
+  }
+  30%
+  {
+    letter-spacing: 25px;
+    margin-bottom: -40px;
+  }
+  65%
+  {
+    letter-spacing: 8px;
+    margin-bottom: -40px;
+    display: none !important;
+  }
+  }
