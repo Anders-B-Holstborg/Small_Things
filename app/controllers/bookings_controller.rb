@@ -19,4 +19,10 @@ class BookingsController < ApplicationController
 
   def delete
   end
+
+  private
+
+  def find_activity(categories)
+
+  end
 end
