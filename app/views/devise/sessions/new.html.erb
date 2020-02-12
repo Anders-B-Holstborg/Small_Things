@@ -1,42 +1,33 @@
-<html>
-  <body>
-    <div class="container-fluid main">
-      <div id="background">
-        <br>
-        <br>
-        <div class="container">
-          <div class="row justify-content-center">
-            <div id="box" class="col-xs-12 col-sm-4 col-sm-offset-4">
-              <div class="container text-center">
-                <h2>Log in</h2>
-              </div>
-              <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-                <div class="form-inputs">
-                  <%= f.input :email, required: false, autofocus: true, placeholder: "bob@gmail.com" %>
-                  <%= f.input :password, required: false, placeholder: "••••••" %>
-                  <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
-                </div>
-                <div class="form-actions">
-                  <%= f.button :submit, "Log in", class: "btn btn-primary" %>
-                </div>
-                <%= render "devise/shared/links" %>
-              <% end %>
-            </div>
+<head>
+  <title>animations</title>
+    <link rel="stylesheet" type="text/css" href="./portfolio6_files/animations.css">
+</head>
+
+
+<div class="loginpage">
+  <div class="umumi">
+  <span class="text1">WELCOME TO</span>
+  <span class="text2">SMALL-THINGS</span>
+</div>
+  <div class="login-page">
+    <div class="form">
+      <h1 style="color: white">Welcome!</h1>
+      <form class="register-form">
+        <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <div class="form-inputs">
+            <%= f.input :email, required: false, autofocus: true, placeholder: "bob@gmail.com" %>
+            <%= f.input :password, required: false, placeholder: "••••••" %>
+            <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+            <%= render "devise/shared/links" %>
+          <% end %>
           </div>
-        </div>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-      </div>
+      </form>
+      <form class="login-form">
+        <input type="text" placeholder="username"/>
+        <input type="password" placeholder="password"/>
+        <button><%= link_to "Log in", new_session_path(resource_name) %></button>
+        <p class="message">Not registered? <%= link_to "Sign up", new_registration_path(resource_name) %> </p>
+      </form>
     </div>
-  </body>
-</html>
+  </div>
+</div>
