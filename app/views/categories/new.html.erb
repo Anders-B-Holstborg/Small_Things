@@ -1,2 +1,7 @@
-<h1>Categories#new</h1>
-<p>Find me in app/views/categories/new.html.erb</p>
+
+<%= simple_form_for @user_category do |f| %>
+  <%= f.error_notification %>
+  <%= f.collection_check_boxes :category,  @categories , :id,   :title %>
+  <%= f.input :time_length_preference %>
+  <%= f.button :submit %>
+<% end %>

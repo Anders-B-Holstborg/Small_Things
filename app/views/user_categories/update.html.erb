@@ -1,2 +1,6 @@
 <h1>CategoryUsers#update</h1>
 <p>Find me in app/views/category_users/update.html.erb</p>
+<%= simple_form_for @available do |f| %>
+  <!-- we specify the new custom input, and we'll use the 'thumb' version of the carrierwave upload -->
+  <%= f.input :preferred_day %>
+<% end %>
