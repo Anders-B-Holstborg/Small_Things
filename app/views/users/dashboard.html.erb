@@ -39,8 +39,9 @@
   <div id="activity_card" class="card flex-row flex-wrap">
     <%= image_tag "sports_logo.png" , height: '42', width: '42'%>
   <div class="card-block">
-    <p>"Playing Ping Pong with a colleague"</p>
-    <p>Category : Sports</p>
+    <p>Activity : "<%=@current_user.bookings %>"</p>
+    <h4> Category : <%= @current_user.activities %> </h4>
+    <h4>Prefered day :  <%=@current_user.preferred_day.strftime ("%A") %> </h4>
     <p>Date : DD/MM/YYYY</p>
     <span class="badge badge-success">DONE</span>
   </div>
@@ -52,3 +53,4 @@
   </footer>
   </div>
 </div>
+
