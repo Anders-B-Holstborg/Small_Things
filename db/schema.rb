@@ -39,11 +39,11 @@ ActiveRecord::Schema.define(version: 2020_02_08_103134) do
   create_table "activities", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "category_id"
-    t.string "title"
     t.text "description"
     t.integer "duration"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "title"
     t.index ["category_id"], name: "index_activities_on_category_id"
     t.index ["user_id"], name: "index_activities_on_user_id"
   end

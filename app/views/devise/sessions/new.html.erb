@@ -1,9 +1,3 @@
-<head>
-  <title>animations</title>
-    <link rel="stylesheet" type="text/css" href="./portfolio6_files/animations.css">
-</head>
-
-
 <div class="loginpage">
   <div class="umumi">
   <span class="text1">WELCOME TO</span>
@@ -11,23 +5,19 @@
 </div>
   <div class="login-page">
     <div class="form">
-      <h1 style="color: white">Welcome!</h1>
-      <form class="register-form">
+      <h1 style="color: white">Sign up</h1>
         <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
           <div class="form-inputs">
+            <%= f.error :base %>
             <%= f.input :email, required: false, autofocus: true, placeholder: "bob@gmail.com" %>
             <%= f.input :password, required: false, placeholder: "••••••" %>
             <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
-            <%= render "devise/shared/links" %>
+          <div class="form-actions">
+            <%= f.button :submit, "Log in" %>
+          </div>
           <% end %>
           </div>
-      </form>
-      <form class="login-form">
-        <input type="text" placeholder="username"/>
-        <input type="password" placeholder="password"/>
-        <button><%= link_to "Log in", new_session_path(resource_name) %></button>
         <p class="message">Not registered? <%= link_to "Sign up", new_registration_path(resource_name) %> </p>
-      </form>
     </div>
   </div>
 </div>
