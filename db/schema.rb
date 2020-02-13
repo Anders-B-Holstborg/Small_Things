@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_08_103134) do
+ActiveRecord::Schema.define(version: 2020_02_01_154424) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 2020_02_08_103134) do
   create_table "activities", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "category_id"
-    t.string "title"
+    t.text "title"
     t.text "description"
     t.integer "duration"
     t.datetime "created_at", null: false
@@ -78,9 +78,9 @@ ActiveRecord::Schema.define(version: 2020_02_08_103134) do
   create_table "user_categories", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "category_id"
-    t.boolean "user_category_preference"
+    t.boolean "user_category_preference", default: true, null: false
     t.integer "time_length_preference"
-    t.integer "offered_counter"
+    t.integer "offered_counter", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_user_categories_on_category_id"

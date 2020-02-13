@@ -3,9 +3,9 @@ class CreateUserCategories < ActiveRecord::Migration[5.2]
     create_table :user_categories do |t|
       t.references :user, foreign_key: true
       t.references :category, foreign_key: true
-      t.boolean :user_category_preference
+      t.boolean :user_category_preference, default: true, null: false
       t.integer :time_length_preference
-      t.integer :offered_counter
+      t.integer :offered_counter, default: 0
 
       t.timestamps
     end
