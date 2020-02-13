@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 2020_02_01_154424) do
     t.integer "duration"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "title"
     t.index ["category_id"], name: "index_activities_on_category_id"
     t.index ["user_id"], name: "index_activities_on_user_id"
   end
