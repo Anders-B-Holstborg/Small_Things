@@ -1,51 +1,68 @@
-<div class="container">
-  <div class="row justify-content-center">
-    <div id="box" class="col-xs-16 col-sm-6 col-sm-offset-3">
-      <div class="container text-center">
-        <h2>Sign Up</h2>
-      </div>
+<div class="loginpage">
+  <div class="umumi">
+  <span class="text1">SIGN UP TO</span>
+  <span class="text2">SMALL-THINGS</span>
+</div>
+
+<div class="login-page">
+  <div class="form">
+    <h1 style="color: white">Sign up</h1>
       <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= f.error_notification %>
         <div class="form-inputs">
           <%= f.input :name,
-                      required: true,
-                      input_html: { autocomplete: "name" } %>
+                      required: true %>
           <%= f.input :email,
                       required: true,
-                      autofocus: true,
-                      input_html: { autocomplete: "email" }%>
+                      autofocus: true %>
           <%= f.input :password,
                       required: true,
-                      hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
                       input_html: { autocomplete: "new-password" } %>
           <%= f.input :password_confirmation,
                       required: true,
                       input_html: { autocomplete: "new-password" } %>
         </div>
-
-        <h5>Please tell us more about you to have a Customized experienced</h5>
-        <div class="form-inputs">
-          <%= f.input :time_of_sending,
-                      required: true,
-                      hint: "let us know at which time you want to receive your daily notif! 😉" %>
-          <%= f.input :preferred_day,
-                      required: true,
-                      collection: (0..6).to_a.map{|j| [(Date.today + j.days).strftime("%A"), (Date.today + j.days).to_s ]  },
-                      hint: "let us know which day you have the most free time! 😉" %>
-          <%= f.input :address,
-                      required: true,
-                      hint: "By sharing your location, we can customized your experience!" %>
-        </div>
-        <div class="form-inputs">
-            <%= f.input :photo, as: :file %>
-        </div>
-        <div class="btn">
-        <div class="form-actions">
-          <%= f.button :submit, "Sign up" %>
-          </div>
-        </div>
-        <%= render "devise/shared/links" %>
-      <% end %>
-    </div>
+        <button type="button" id="goto" title="Go to third paragraph">Continue</button>
   </div>
 </div>
+<div class="login-page">
+  <h1 class="text-center"><font color="#40e0d0">A few more steps ☀️</font></h1>
+  <div class="form">
+        <div id="part-3">
+          <div class="form-inputs">
+            <%= f.input :time_of_sending,
+                        required: true,
+                        hint: "let us know at which time you want to receive your daily notif! 😉" %>
+            <%= f.input :preferred_day,
+                        required: true,
+                        collection: (0..6).to_a.map{|j| [(Date.today + j.days).strftime("%A"), (Date.today + j.days).to_s ]  },
+                        hint: "let us know which day you have the most free time! 😉" %>
+            <%= f.input :address,
+                        required: true,
+                        hint: "By sharing your location, we can customized your experience!" %>
+            <div class="form-inputs">
+              <%= f.input :photo, as: :file %>
+            </div>
+            <div class="form-actions">
+              <%= f.button :submit, "Sign up" %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+  </div>
+</div>
+
+
+<script>
+  const target = document.getElementById('part-3'),
+        button = document.getElementById('goto');
+
+  button.addEventListener('click', function(){
+
+    target.scrollIntoView({
+      block: 'start',
+      behavior: 'smooth',
+      inline: 'nearest'
+    });
+  });
+</script>
