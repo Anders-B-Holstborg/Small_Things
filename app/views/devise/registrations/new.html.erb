@@ -3,29 +3,32 @@
   <span class="text1">SIGN UP TO</span>
   <span class="text2">SMALL-THINGS</span>
 </div>
-  <div class="login-page">
-    <div class="form">
-      <h1 style="color: white">Sign up</h1>
-        <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-          <%= f.error_notification %>
-          <div class="form-inputs">
-            <%= f.input :name,
-                        required: true,
-                        input_html: { autocomplete: "name" } %>
-            <%= f.input :email,
-                        required: true,
-                        autofocus: true,
-                        input_html: { autocomplete: "email" }%>
-            <%= f.input :password,
-                        required: true,
-                        hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                        input_html: { autocomplete: "new-password" } %>
-            <%= f.input :password_confirmation,
-                        required: true,
-                        input_html: { autocomplete: "new-password" } %>
-          </div>
 
-          <h5>Please tell us more about you to have a Customized experienced</h5>
+<div class="login-page">
+  <div class="form">
+    <h1 style="color: white">Sign up</h1>
+      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= f.error_notification %>
+        <div class="form-inputs">
+          <%= f.input :name,
+                      required: true %>
+          <%= f.input :email,
+                      required: true,
+                      autofocus: true %>
+          <%= f.input :password,
+                      required: true,
+                      input_html: { autocomplete: "new-password" } %>
+          <%= f.input :password_confirmation,
+                      required: true,
+                      input_html: { autocomplete: "new-password" } %>
+        </div>
+        <button type="button" id="goto" title="Go to third paragraph">Continue</button>
+  </div>
+</div>
+<div class="login-page">
+  <h1 class="text-center"><font color="#40e0d0">A few more steps ☀️</font></h1>
+  <div class="form">
+        <div id="part-3">
           <div class="form-inputs">
             <%= f.input :time_of_sending,
                         required: true,
@@ -44,7 +47,22 @@
               <%= f.button :submit, "Sign up" %>
             </div>
           </div>
-        <% end %>
-    </div>
+        </div>
+      <% end %>
   </div>
 </div>
+
+
+<script>
+  const target = document.getElementById('part-3'),
+        button = document.getElementById('goto');
+
+  button.addEventListener('click', function(){
+
+    target.scrollIntoView({
+      block: 'start',
+      behavior: 'smooth',
+      inline: 'nearest'
+    });
+  });
+</script>
