@@ -1,0 +1,25 @@
+<h1>G'day sirlordmadam <%= @user.name %></h1>
+<div style="display:flex;">
+  <div>
+    <% if @activity_one.photo.attached? %>
+       <%= cl_image_path(@activity_one.photo) %>
+    <% else %>
+      <%= image_tag "sport.jpeg", id:"img-size", class: "card-img-top" %>
+    <% end %>
+    <h4><%= @activity_one.title %></h4>
+    <p><%= @activity_one.description %></p>
+    <p>Duration: <br><%= @activity_one.duration %> minutes.</p>
+    <h2><a href="">Choose <%= @activity_one.title %>!</a></h2>
+  </div>
+  <div>
+    <% if @activity_two.photo.attached? %>
+       <%= cl_image_path(@activity_one.photo) %>
+    <% else %>
+      <%= image_tag "sport.jpeg", id:"img-size", class: "card-img-top" %>
+    <% end %>
+    <h4><%= @activity_two.title %></h4>
+    <p><%= @activity_two.description %></p>
+    <p>Duration: <br><%= @activity_two.duration %> minutes.</p>
+    <h2><a href="">Choose <%= @activity_two.title %>!</a></h2>
+  </div>
+</div>

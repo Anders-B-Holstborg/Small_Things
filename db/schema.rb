@@ -79,9 +79,9 @@ ActiveRecord::Schema.define(version: 2020_02_01_154424) do
   create_table "user_categories", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "category_id"
-    t.boolean "user_category_preference"
+    t.boolean "user_category_preference", default: true, null: false
     t.integer "time_length_preference"
-    t.integer "offered_counter"
+    t.integer "offered_counter", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_user_categories_on_category_id"

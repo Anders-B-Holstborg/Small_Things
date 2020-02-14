@@ -67,4 +67,16 @@ activities.each do |key, value|
 end
 
 puts "We did it fam. Added #{@added_acts} activities!"
+
+puts "Adding user category preferences..."
+@users = User.all
+@categories = Category.all
+
+@users.each do |user|
+  @categories.each do |category|
+    time = rand(10..120)
+    UserCategory.create!(user_id: user.id, category_id: category.id, time_length_preference: time)
+  end
+end
+
 puts "End of the line!"

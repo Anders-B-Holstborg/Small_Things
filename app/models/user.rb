@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  # after_create :send_welcome_email
+
   ALLOWED_DAYS = %w[Monday Tuesday Wednesday Thursday Friday Saturday Sunday].freeze
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
@@ -16,4 +18,10 @@ class User < ApplicationRecord
   has_many :user_categories
   has_many :categories, through: :user_categories
   has_many :reviews
+
+  private
+
+  def send_welcome_email
+    UserMailer.with(user: self).welcome.deliver_now
+  end
 end
