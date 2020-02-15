@@ -6,33 +6,38 @@ class BookingsController < ApplicationController
     @booking = Booking.new
   end
 
-  def create
-    @user = current_user
-    @user_categories = current_user.user_categories.where(user_category_preference: true).to_a
-    @user_activity_one = find_activity(@user_categories)
-    @user_activity_two = find_activity(@user_categories)
-    UserMailer.with({user: @user, activity_one: @user_activity_one, activity_two: @user_activity_two}).deliver_now
-    choose_activity_via_mail
+  def create(activity)
+    @booking = Booking.create(user_id: current_user.id, activity_id: activity.id)
+  end
+
+
+  def accepted_activity
+    @booking = current_user.bookings.find(params[:id])
+    if @booking
+      @booking.accepted
+      @refused_booking = current_user.bookings.find_by(status: 'offered')
+      @refused_booking.refused
+      redirect_to dashboard_path(accepted_booking_id: @booking.id)
+    else
+      redirect_to dashboard_path
+    end
+
+  end
+
+  def show
+    @booking = find_booking
   end
 
   def edit
+    @booking = find_booking
   end
 
   def update
   end
 
-  def show
-  end
-
-  def delete
-  end
-
   private
 
-  def find_activity(user_categories)
-    rolled_user_category = user_categories.sample
-    rolled_category = rolled_user_category.category
-    @user_categories.delete(rolled_user_category)
-    rolled_category.activities.sample
+  def find_booking
+    @booking = Booking.find(params[:id])
   end
 end

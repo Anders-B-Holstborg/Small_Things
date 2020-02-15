@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   end
   resources :user_categories, only: [ :new, :create ]
   resources :bookings do
+     member do
+      get 'accepted_activity', to: 'bookings#accepted_activity'
+    end
     resources :reviews, only: [ :new, :create ]
   end
 

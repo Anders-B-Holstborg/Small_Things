@@ -41,11 +41,6 @@
   <div id="activity_card" class="card flex-row flex-wrap">
     <%= image_tag "sports_logo.png" , height: '42', width: '42'%>
   <div class="card-block">
-    <% @user.bookings.each do |booking| %>
-    <p>Activity : "<%= @booking.last %>"</p>
-    <h4> Category : <%= @booking.category %> </h4>
-    <p>Date : DD/MM/YYYY </p>
-      <% end %>
     <span class="badge badge-success">DONE</span>
   </div>
 </div>
