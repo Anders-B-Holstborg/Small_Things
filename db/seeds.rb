@@ -79,4 +79,9 @@ puts "Adding user category preferences..."
   end
 end
 
+10.times do
+  @activity = Activity.all.sample
+  Booking.create!(user_id: 1, activity_id: @activity.id, status: "completed")
+end
+
 puts "End of the line!"
