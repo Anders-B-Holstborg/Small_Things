@@ -1,7 +1,15 @@
-
-<%= simple_form_for @user_category do |f| %>
-  <%= f.error_notification %>
-  <%= f.collection_check_boxes :category,  @categories , :id,   :title %>
-  <%= f.input :time_length_preference %>
-  <%= f.button :submit %>
-<% end %>
+<div class="loginpage">
+  <div class="login-page">
+    <div class="form">
+      <h1 style="color: white">
+        Give your Preferences
+      </h1>
+      <%= simple_form_for @user_category do |f| %>
+      <p><%= f.error_notification %></p>
+        <%= f.collection_check_boxes :category,  @categories , :id,   :title %>
+      <p><%= f.input :time_length_preference %></p>
+        <%= f.submit %>
+      <% end %>
+    </div>
+  </div>
+</div>
