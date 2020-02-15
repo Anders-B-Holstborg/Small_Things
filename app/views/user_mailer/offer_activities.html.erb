@@ -9,7 +9,8 @@
     <h4><%= @activity_one.title %></h4>
     <p><%= @activity_one.description %></p>
     <p>Duration: <br><%= @activity_one.duration %> minutes.</p>
-    <h2><a href="">Choose <%= @activity_one.title %>!</a></h2>
+    <h2> <%= link_to "Choose #{@activity_one.title} !", accepted_activity_booking_url(@booking_one) %> </h2>
+
   </div>
   <div>
     <% if @activity_two.photo.attached? %>
@@ -20,6 +21,6 @@
     <h4><%= @activity_two.title %></h4>
     <p><%= @activity_two.description %></p>
     <p>Duration: <br><%= @activity_two.duration %> minutes.</p>
-    <h2><a href="">Choose <%= @activity_two.title %>!</a></h2>
+    <h2> <%= link_to "Choose #{@activity_two.title} !", accepted_activity_booking_url(@booking_two) %> </h2>
   </div>
 </div>
