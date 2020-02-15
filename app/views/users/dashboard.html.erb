@@ -1,40 +1,30 @@
 <div class="container-fluid text-center">
   <div class="row content">
     <div class="col-sm-4">
-      <button class="btn"><%= link_to "View Categories", categories_path %></button>
-      <button class="btn"><%= link_to "Choose Categories", new_category_path %></button>
       <br>
-      <button class="btn"><%= link_to "Create activity!", new_activity_path %></button>
-      <p><a href="#">Link</a></p>
-      <p><a href="#">Link</a></p>
+      <br>
+      <div id="box-dashboard">
+        <button class="btn"><%= link_to "View Categories", categories_path %></button>
+        <button class="btn"><%= link_to "Choose Categories", new_category_path %></button>
+        <button class="btn"><%= link_to "Create activity!", new_activity_path %></button>
     </div>
+  </div>
   <div class=" col-sm-4">
       <br>
       <br>
-
-<div id="box-dashboard">
-  <div class="row justify-content-center">
-
-    <div id="profile_dashboard">
-      <%= cl_image_tag @user.photo.key if @user.photo.attached? %>
-      <h4>User name :  <%= @current_user.name %> </h4>
-      <h4>User address :  <%= @current_user.address %> </h4>
-      <h4>Member since :  <%= @current_user.created_at.strftime("%Y, %B %d") %> </h4>
-      <h4>Preferred day :  <%= @current_user.preferred_day.strftime("%A") if @current_user.preferred_day %> </h4>
-    </div>
+    <div class="contact-card">
+      <div class="contact-card__header-image">
+        <div class="contact-card__avatar"></div>
+      </div>
+      <p class="contact-card__name"><%= @current_user.name %></p>
+      <ul>
+        <li class="contact-card__link contact-card__link--mobile"><a title="Call Callum Brown" href="tel:"><%= @current_user.address %></a></li>
+        <li class="contact-card__link contact-card__link--mobile"><a title="Call Callum Brown" href="tel:"><%= @current_user.created_at.strftime("%Y, %B %d") %></a></li>
+        <li class="contact-card__link contact-card__link--mobile"><a title="Call Callum Brown" href="tel:"><%= @current_user.preferred_day.strftime("%A") if @current_user.preferred_day %></a></li>
+      </ul>
     </div>
   </div>
-      <br>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-         labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-          nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod
-          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-          ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-        <br>
-      <h3>Test</h3>
-      <p>Lorem ipsum...</p>
-</div>
+
 
 <div id="feed" class="col-sm">
   <% current_user.bookings.each_with_index do |booking, i | %>
