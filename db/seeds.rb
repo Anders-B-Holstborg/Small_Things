@@ -78,5 +78,15 @@ puts "Adding user category preferences..."
     UserCategory.create!(user_id: user.id, category_id: category.id, time_length_preference: time)
   end
 end
+puts "Preferences added!"
+
+puts "Adding completed activities to users..."
+User.all.each do |user|
+  10.times do
+    @activity = Activity.all.sample
+    Booking.create!(user_id: user.id, activity_id: @activity.id, status: "completed")
+  end
+end
+puts "Success! 10 completed for all!"
 
 puts "End of the line!"
