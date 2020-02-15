@@ -36,22 +36,42 @@
       <p>Lorem ipsum...</p>
 </div>
 
-
 <div id="feed" class="col-sm">
+  <% current_user.bookings.each_with_index do |booking, i | %>
   <div id="activity_card" class="card flex-row flex-wrap">
-    <%= image_tag "sports_logo.png" , height: '42', width: '42'%>
-  <div class="card-block">
-    <% current_user.bookings.each do |booking| %>
-    <h2> Category : <%= booking.activity.category.title %> </h4>
-    <p>Activity Title : "<%= booking.activity.title %>"</p>
-    <p>Activity Description : "<%= booking.activity.description %>"</p>
-    <p>Date : dd/mm/yyyy </p>
-    <hr>
-      <% end %>
-    <span class="badge badge-success">DONE</span>
+    <div class="card-block" style="filter: opacity( <%=  100 / (i + 1) %>% );">
+      <h4> "<%= booking.activity.description %>"</h4>
+      <p> Category : <%= booking.activity.category.title %> </p>
+      <p>Activity Title : "<%= booking.activity.title %>"</p>
+      <p>Date : dd/mm/yyyy </p>
+        <span class="category_img"> </span>
+        <% case %>
+        <% when booking.activity.category.title == 'Sports' %>
+        <%= image_tag "sports-category.png", height: '65', width: '65' %>
+        <% when booking.activity.category.title == 'Reading' %>
+        <%= image_tag "reading-category.png", height: '65', width: '65' %>
+        <% when booking.activity.category.title == 'Lifestyle' %>
+        <%= image_tag "sports-category.png", height: '65', width: '65' %>
+        <% when booking.activity.category.title == 'Human' %>
+        <%= image_tag "human-category.png", height: '65', width: '65' %>
+        <% when booking.activity.category.title == 'Culture' %>
+        <%= image_tag "culture-category.png", height: '65', width: '65' %>
+        <% else %>
+        <%= image_tag "logo.png", height: '65', width: '65' %>
+        <% end  %>
+
+        <div class="badge">
+          <% if booking.status == 'completed' %>
+          <span class="badge badge-success">DONE</span>
+        <% else  %>
+          <span class="badge badge-danger">LOOSER</span>
+          <% end  %>
+        </div>
+    </div>
   </div>
-</div>
+  <% end %>
 <div>
+
 <div>
   <footer class="container-fluid text-center">
     <p>Footer Text</p>
