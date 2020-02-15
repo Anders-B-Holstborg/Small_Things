@@ -21,7 +21,6 @@ class BookingsController < ApplicationController
     else
       redirect_to dashboard_path
     end
-
   end
 
   def show

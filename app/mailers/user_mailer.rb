@@ -10,8 +10,8 @@ class UserMailer < ApplicationMailer
     @user = params[:user]
     @activity_one =  params[:activity_one]
     @activity_two = params[:activity_two]
-    @booking_one = find_booking(@activity_one)
-    @booking_two = find_booking(@activity_two)
+    @booking_one = params[:booking_one]
+    @booking_two = params[:booking_two]
 
     mail(to: @user.email, subject: "Today's activity!")
   end
