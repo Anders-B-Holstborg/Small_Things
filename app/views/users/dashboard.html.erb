@@ -17,14 +17,12 @@
 
     <div id="profile_dashboard">
       <%= cl_image_tag @user.photo.key if @user.photo.attached? %>
-      <br>
-      <hr>
       <h4>User name :  <%= @current_user.name %> </h4>
       <h4>User address :  <%= @current_user.address %> </h4>
       <h4>Member since :  <%= @current_user.created_at.strftime("%Y, %B %d") %> </h4>
       <h4>Preferred day :  <%= @current_user.preferred_day.strftime("%A") if @current_user.preferred_day %> </h4>
     </div>
-  </div>
+    </div>
   </div>
       <br>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
