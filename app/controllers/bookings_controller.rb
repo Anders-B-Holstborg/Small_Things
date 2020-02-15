@@ -12,6 +12,7 @@ class BookingsController < ApplicationController
     @user_activity_one = find_activity(@user_categories)
     @user_activity_two = find_activity(@user_categories)
     UserMailer.with({user: @user, activity_one: @user_activity_one, activity_two: @user_activity_two}).deliver_now
+    choose_activity_via_mail
   end
 
   def edit
