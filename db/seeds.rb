@@ -82,7 +82,7 @@ puts "Preferences added!"
 
 puts "Adding completed activities to users..."
 User.all.each do |user|
-  10.times do
+  5.times do
     @activity = Activity.all.sample
     Booking.create!(user_id: user.id, activity_id: @activity.id, status: "completed")
   end
