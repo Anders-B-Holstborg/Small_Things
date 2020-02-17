@@ -12,7 +12,7 @@
   <div class=" col-sm-4">
       <br>
       <br>
-    <div class="contact-card">
+    <div class="contact-card flex-row flex-wrap">
       <div class="contact-card__header-image">
         <div class="contact-card__avatar"></div>
       </div>
@@ -30,10 +30,12 @@
   <% current_user.bookings.each_with_index do |booking, i | %>
   <div id="activity_card" class="card flex-row flex-wrap">
     <div class="card-block" style="filter: opacity( <%=  100 / (i + 1) %>% );">
+      <h3><%= booking.activity.title %></h3>
+      <hr>
       <h4> "<%= booking.activity.description %>"</h4>
-      <p> Category : <%= booking.activity.category.title %> </p>
-      <p>Activity Title : "<%= booking.activity.title %>"</p>
-      <p>Date : dd/mm/yyyy </p>
+      <h6> Category : <%= booking.activity.category.title %> </h6>
+      <h6>Date :  </h6>
+      </ul>
         <span class="category_img"> </span>
         <% case %>
         <% when booking.activity.category.title == 'Sports' %>
@@ -49,14 +51,6 @@
         <% else %>
         <%= image_tag "logo.png", height: '65', width: '65' %>
         <% end  %>
-
-        <div class="badge">
-          <% if booking.status == 'completed' %>
-          <span class="badge badge-success">DONE</span>
-        <% else  %>
-          <span class="badge badge-danger">LOOSER</span>
-          <% end  %>
-        </div>
     </div>
   </div>
   <% end %>
@@ -68,4 +62,5 @@
   </footer>
   </div>
 </div>
+
 
