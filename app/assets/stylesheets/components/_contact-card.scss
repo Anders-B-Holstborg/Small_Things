@@ -3,17 +3,15 @@
 // ---------- C O N T A C T - C A R D ----------
 
 .contact-card{
-  height: 600px;
-  width: 460px;
-  font-family: 'Roboto', sans-serif;
-  font-size: 1em;
-  line-height: 1.5em;
-  text-align: center;
+  overflow: hidden;
   background-color: #FFFFFF;
+  font-family: 'Roboto', sans-serif;
+  margin-top: 50px;
   border-radius: 1em;
   box-shadow: 0 0 2em rgba(0,0,0,0.125);
-  overflow: hidden;
-
+  border-style: black;
+  padding: 10px 40px;
+  flex: 1;
 
     &:hover{
       transform: translateY(-0.5em);
