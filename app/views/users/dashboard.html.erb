@@ -7,7 +7,6 @@
         <button class="btn"><%= link_to "View Categories", categories_path %></button>
         <button class="btn"><%= link_to "Choose Categories", new_category_path %></button>
         <button class="btn"><%= link_to "Create activity!", new_activity_path %></button>
-        <p><%= @quote %></p>
     </div>
   </div>
   <div class=" col-sm-4">
@@ -23,6 +22,7 @@
         <li class="contact-card__link contact-card__link--mobile"><a><%= @current_user.address %></a></li>
         <li class="contact-card__link contact-card__link--mobile"><a><%= @current_user.created_at.strftime("%Y, %B %d") %></a></li>
         <li class="contact-card__link contact-card__link--mobile"><a><%= @current_user.preferred_day.strftime("%A") if @current_user.preferred_day %></a></li>
+        <p><%= @quote %></p>
       </ul>
     </div>
   </div>
