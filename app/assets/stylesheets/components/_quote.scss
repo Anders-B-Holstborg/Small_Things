@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css?family=Special+Elite');
+
+blockquote {
+  font-weight: 100;
+  font-size: 1rem;
+  max-width: auto;
+  line-height: 1.4;
+  position: relative;
+  margin: 0;
+  padding: .5rem;
+}
+
+blockquote:before,
+blockquote:after {
+  position: absolute;
+  color: #f1efe6;
+  font-size: 8rem;
+  width: 4rem;
+  height: 4rem;
+}
+
+blockquote:before {
+  content: '“';
+  left: -2rem;
+  top: -1rem;
+}
+
+blockquote:after {
+  content: '”';
+  right: -2rem;
+  bottom: 1rem;
+}
+
+cite {
+  line-height: 3;
+  text-align: left;
+}
