@@ -10,8 +10,6 @@
     </div>
   </div>
   <div class=" col-sm-4">
-      <br>
-      <br>
     <div class="contact-card flex-row flex-wrap">
       <div class="contact-card__header-image">
         <div class="contact-card__avatar">
@@ -22,8 +20,11 @@
         <li class="contact-card__link contact-card__link--mobile"><a><%= @current_user.address %></a></li>
         <li class="contact-card__link contact-card__link--mobile"><a><%= @current_user.created_at.strftime("%Y, %B %d") %></a></li>
         <li class="contact-card__link contact-card__link--mobile"><a><%= @current_user.preferred_day.strftime("%A") if @current_user.preferred_day %></a></li>
-        <p><%= @quote %></p>
       </ul>
+      <div id="box-quote">
+        <p>Get some Motivation:</p>
+        <p>"<%= @quote %>"</p>
+      </div>
     </div>
   </div>
 
@@ -60,7 +61,7 @@
 
 <div>
   <footer class="container-fluid text-center">
-    <p>Footer Text</p>
+    <p></p>
   </footer>
   </div>
 </div>
