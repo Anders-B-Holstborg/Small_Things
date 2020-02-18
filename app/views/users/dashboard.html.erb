@@ -7,6 +7,7 @@
         <button class="btn"><%= link_to "View Categories", categories_path %></button>
         <button class="btn"><%= link_to "Choose Categories", new_category_path %></button>
         <button class="btn"><%= link_to "Create activity!", new_activity_path %></button>
+        <p><%= @quote %></p>
     </div>
   </div>
   <div class=" col-sm-4">
@@ -14,13 +15,14 @@
       <br>
     <div class="contact-card">
       <div class="contact-card__header-image">
-        <div class="contact-card__avatar"></div>
+        <div class="contact-card__avatar">
+        </div>
       </div>
       <p class="contact-card__name"><%= @current_user.name %></p>
       <ul>
-        <li class="contact-card__link contact-card__link--mobile"><a title="Call Callum Brown" href="tel:"><%= @current_user.address %></a></li>
-        <li class="contact-card__link contact-card__link--mobile"><a title="Call Callum Brown" href="tel:"><%= @current_user.created_at.strftime("%Y, %B %d") %></a></li>
-        <li class="contact-card__link contact-card__link--mobile"><a title="Call Callum Brown" href="tel:"><%= @current_user.preferred_day.strftime("%A") if @current_user.preferred_day %></a></li>
+        <li class="contact-card__link contact-card__link--mobile"><a><%= @current_user.address %></a></li>
+        <li class="contact-card__link contact-card__link--mobile"><a><%= @current_user.created_at.strftime("%Y, %B %d") %></a></li>
+        <li class="contact-card__link contact-card__link--mobile"><a><%= @current_user.preferred_day.strftime("%A") if @current_user.preferred_day %></a></li>
       </ul>
     </div>
   </div>
