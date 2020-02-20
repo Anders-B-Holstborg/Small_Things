@@ -1,2 +1,9 @@
-enhance_image_tag: true
-static_image_support: true
+development:
+  enhance_image_tag: true
+  static_image_support: true
+production:
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  enhance_image_tag: true
+  static_image_support: true

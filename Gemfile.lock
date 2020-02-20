@@ -227,7 +227,7 @@ DEPENDENCIES
   autoprefixer-rails
   bootsnap
   chartkick
-  cloudinary (~> 1.12.0)
+  cloudinary
   devise
   dotenv-rails
   faker
