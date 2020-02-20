@@ -87,6 +87,6 @@ User.all.each do |user|
     Booking.create!(user_id: user.id, activity_id: @activity.id, status: "completed")
   end
 end
-puts "Success! 10 completed for all!"
+puts "Success! 5 completed for all!"
 
 puts "End of the line!"

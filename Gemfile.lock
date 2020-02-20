@@ -225,7 +225,7 @@ PLATFORMS
 DEPENDENCIES
   autoprefixer-rails
   bootsnap
-  cloudinary (~> 1.12.0)
+  cloudinary
   devise
   dotenv-rails
   faker
