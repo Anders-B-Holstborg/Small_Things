@@ -43,36 +43,37 @@
   </div>
 
 
-<div id="feed" class="col-sm">
-  <% current_user.bookings.each_with_index do |booking, i | %>
-  <div id="activity_card" class="card flex-row flex-wrap">
-    <div class="card-block" style="filter: opacity( <%=  100 / (i + 1) %>% );">
-      <h3><%= booking.activity.title %></h3>
-      <hr>
-      <p> "<%= booking.activity.description %>"</p>
-      <p> Category : <%= booking.activity.category.title %> </p>
-      <p>Date :  </p>
-      </ul>
-        <span class="category_img"> </span>
-        <% case %>
-        <% when booking.activity.category.title == 'Sports' %>
-        <%= image_tag "sports-category.png", height: '65', width: '65' %>
-        <% when booking.activity.category.title == 'Reading' %>
-        <%= image_tag "reading-category.png", height: '65', width: '65' %>
-        <% when booking.activity.category.title == 'Lifestyle' %>
-        <%= image_tag "sports-category.png", height: '65', width: '65' %>
-        <% when booking.activity.category.title == 'Human' %>
-        <%= image_tag "human-category.png", height: '65', width: '65' %>
-        <% when booking.activity.category.title == 'Culture' %>
-        <%= image_tag "culture-category.png", height: '65', width: '65' %>
-        <% else %>
-        <%= image_tag "logo.png", height: '65', width: '65' %>
-        <% end  %>
+<div class="col-sm" id="scroll">
+  <div id="feed">
+    <% current_user.bookings.each_with_index do |booking, i | %>
+    <div id="activity_card" class="card flex-row flex-wrap">
+      <div class="card-block" style="filter: opacity( <%=  100 / (i + 1) %>% );">
+        <h3><%= booking.activity.title %></h3>
+        <hr>
+        <p> "<%= booking.activity.description %>"</p>
+        <p> Category : <%= booking.activity.category.title %> </p>
+        <p>Date :  </p>
+        </ul>
+          <span class="category_img"> </span>
+          <% case %>
+          <% when booking.activity.category.title == 'Sports' %>
+          <%= image_tag "sports-category.png", height: '65', width: '65' %>
+          <% when booking.activity.category.title == 'Reading' %>
+          <%= image_tag "reading-category.png", height: '65', width: '65' %>
+          <% when booking.activity.category.title == 'Lifestyle' %>
+          <%= image_tag "sports-category.png", height: '65', width: '65' %>
+          <% when booking.activity.category.title == 'Human' %>
+          <%= image_tag "human-category.png", height: '65', width: '65' %>
+          <% when booking.activity.category.title == 'Culture' %>
+          <%= image_tag "culture-category.png", height: '65', width: '65' %>
+          <% else %>
+          <%= image_tag "logo.png", height: '65', width: '65' %>
+          <% end  %>
+      </div>
     </div>
+    <% end %>
   </div>
-  <% end %>
-<div>
-
+</div>
 
 <div>
   <footer class="container-fluid text-center">

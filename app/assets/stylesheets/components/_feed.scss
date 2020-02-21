@@ -1,13 +1,19 @@
+#scroll {
+  overflow-y: scroll;
+  height: 600px;
+}
+
 #activity_card {
+  width: 100%;
   background: white;
   padding: 10px 20px;
-  margin-top: 50px;
+  margin-top: 16px;
   border-radius: 5%;
   box-shadow: 1px 1px 2px rgba(0,0,0,0.1);
   background-color: #FFFFFF;
   border-style: black;
   padding: 10px 40px;
-  overflow-y: scroll;
+  overflow-y: auto;
   flex: 1;
     &:hover {
     transform: scale(1.02);
