@@ -15,8 +15,7 @@ class UsersController < ApplicationController
       user_serialized = open(url).read
       quote = JSON.parse(user_serialized)
       @quote = quote["quoteText"]
-      options = { units: "metric", APPID: "946bfbf42b2767701ba937cb4802fc37" }
-      @weather = OpenWeather::Current.city_id("2800867", options)
+      @quoteAuthor = quote["quoteAuthor"]
     end
   end
 end

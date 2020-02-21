@@ -23,12 +23,19 @@
         <li class="contact-card__link contact-card__link--mobile"><a><%= @current_user.created_at.strftime("%Y, %B %d") %></a></li>
         <li class="contact-card__link contact-card__link--mobile"><a><%= @current_user.preferred_day.strftime("%A") if @current_user.preferred_day %></a></li>
       </ul>
-      <div id="box-quote">
-        <p>Get some Motivation:</p>
-        <p>"<%= @quote %>"</p>
-        <p>"<%= @weather %>"</p>
+      <div id="quote">
+        <div class="quote">
+          <blockquote>
+        <p> <%= @quote %></p>
+        </blockquote>
+        <cite><%= @quoteAuthor %></cite>
+          </div>
+        <br>
       </div>
     </div>
+        <div class="chart">
+      <%= pie_chart @current_user.bookings.group(:activity).count %>
+      </div>
   </div>
 
 
@@ -38,9 +45,9 @@
     <div class="card-block" style="filter: opacity( <%=  100 / (i + 1) %>% );">
       <h3><%= booking.activity.title %></h3>
       <hr>
-      <h4> "<%= booking.activity.description %>"</h4>
-      <h6> Category : <%= booking.activity.category.title %> </h6>
-      <h6>Date :  </h6>
+      <p> "<%= booking.activity.description %>"</p>
+      <p> Category : <%= booking.activity.category.title %> </p>
+      <p>Date :  </p>
       </ul>
         <span class="category_img"> </span>
         <% case %>
@@ -61,6 +68,7 @@
   </div>
   <% end %>
 <div>
+
 
 <div>
   <footer class="container-fluid text-center">
