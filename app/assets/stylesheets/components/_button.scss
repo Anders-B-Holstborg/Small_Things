@@ -1,24 +1,40 @@
-.myButton {
-  box-shadow:inset 0px 1px 0px 0px #efdcfb;
-  background:linear-gradient(to bottom, #dfbdfa 5%, #bc80ea 100%);
-  background-color:#dfbdfa;
-  border:1px solid #c584f3;
-  display:inline-block;
-  cursor:pointer;
-  color:#ffffff;
-  font-size:15px;
-  font-weight:bold;
-  padding:6px 24px;
-  text-decoration:none;
-  text-shadow:0px 1px 0px #9752cc;
+.mybutton {
+  height: 80px;
+  width: 140px;
+  margin: 15px;
+  font-size: 12px;
+  font-color: white;
+  background-color: #ecfcff;
+  border:1px solid black;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
 }
 
-.myButton:hover {
-  background:linear-gradient(to bottom, #bc80ea 5%, #dfbdfa 100%);
-  background-color:#bc80ea;
+.mybutton2 {
+  height: 80px;
+  width: 140px;
+  margin: 15px;
+  background-color: #b2fcff;
+  border: 1px solid black;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
 }
 
-.myButton:active {
-  position:relative;
-  top:1px;
+.mybutton3 {
+  height: 80px;
+  width: 140px;
+  margin: 15px;
+  background-color: #edb5f5;
+  border: 1px solid black;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
 }
