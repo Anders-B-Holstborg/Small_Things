@@ -15,7 +15,7 @@ class UsersController < ApplicationController
       user_serialized = open(url).read
       quote = JSON.parse(user_serialized)
       @quote = quote["quoteText"]
-      @quoteAuthor = quote["quoteAuthor"]
+      @quote_author = quote["quoteAuthor"]
     end
   end
 end
