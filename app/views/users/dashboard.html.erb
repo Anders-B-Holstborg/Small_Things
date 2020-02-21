@@ -2,9 +2,13 @@
   <div class="row content">
     <div class="col-sm-4">
       <div id="box-dashboard">
+        <hr align="center" width="100%" color="midnightblue" size="3">
         <button class="btn"><%= link_to "View Categories", categories_path %></button>
+        <hr align="center" width="100%" color="midnightblue" size="3">
         <button class="btn"><%= link_to "Choose Categories", new_category_path %></button>
+        <hr align="center" width="100%" color="midnightblue" size="3">
         <button class="btn"><%= link_to "Create activity!", new_activity_path %></button>
+        <hr align="center" width="100%" color="midnightblue" size="3">
     </div>
   </div>
   <div class=" col-sm-4">
@@ -22,6 +26,7 @@
       <div id="box-quote">
         <p>Get some Motivation:</p>
         <p>"<%= @quote %>"</p>
+        <p>"<%= @weather %>"</p>
       </div>
     </div>
   </div>
