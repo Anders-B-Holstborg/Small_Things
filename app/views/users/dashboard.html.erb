@@ -2,16 +2,20 @@
   <div class="row content">
     <div class="col-sm-4">
       <div id="box-dashboard">
-        <hr align="center" width="100%" color="midnightblue" size="3">
-        <button class="btn"><%= link_to "View Categories", categories_path %></button>
-        <hr align="center" width="100%" color="midnightblue" size="3">
-        <button class="btn"><%= link_to "Choose Categories", new_category_path %></button>
-        <hr align="center" width="100%" color="midnightblue" size="3">
-        <button class="btn"><%= link_to "Create activity!", new_activity_path %></button>
-        <hr align="center" width="100%" color="midnightblue" size="3">
+        <div class="mybutton">
+          <%= link_to "View Categories", categories_path %>
+        </div>
+        <div class="mybutton2">
+          <%= link_to "Choose Categories", new_category_path %>
+        </div>
+        <div class="mybutton3">
+          <%= link_to "Create activity!", new_activity_path %>
+        </div>
+        <p><strong>Actual weather:</strong></p>
+        <%= @weather %>
     </div>
   </div>
-  <div class=" col-sm-4">
+  <div class="col-sm-4">
     <div class="contact-card flex-row flex-wrap">
       <div class="contact-card__header-image">
         <div class="contact-card__avatar">
