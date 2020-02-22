@@ -20,6 +20,7 @@ gem 'webpacker'
 gem 'geocoder'
 gem 'tod'
 gem 'cloudinary', '~> 1.12.0'
+gem 'open-weather'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
