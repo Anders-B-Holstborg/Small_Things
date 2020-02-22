@@ -42,11 +42,13 @@
         <div class="contact-card__avatar">
         </div>
       </div>
+
       <p class="contact-card__name"> <%= @current_user.name %></p>
       <ul>
         <li class="contact-card__link contact-card__link--mobile"><a><%= @current_user.created_at.strftime("%Y, %B %d") %></a></li>
         <li class="contact-card__link contact-card__link--mobile"><a><%= @current_user.preferred_day.strftime("%A") if @current_user.preferred_day %></a></li>
       </ul>
+
       <div id="quote">
         <div class="quote">
           <blockquote>
@@ -78,34 +80,31 @@
                   <h4 class="booking-title"> <%= booking.activity.title %></h4>
                 </div>
               <div class="col-sm">
-                <img class="category_img"> </img>
-                <% case booking.activity.category.title %>
-                <% when 'Sports' %>
+                <% case %>
+                <% when booking.activity.category.title == 'Sports' %>
                 <%= image_tag "sports-category.png", height: '35', width: '35' %>
-                <% when 'Reading' %>
+                <% when booking.activity.category.title == 'Reading' %>
                 <%= image_tag "reading-category.png", height: '35', width: '35' %>
-                <% when 'Lifestyle' %>
-                <%= image_tag "lifestyle-category.png", height: '35', width: '35' %>
-                <% when 'Human' %>
+                <% when booking.activity.category.title == 'Lifestyle' %>
+                <%= image_tag "sports-category.png", height: '35', width: '35' %>
+                <% when booking.activity.category.title == 'Human' %>
                 <%= image_tag "human-category.png", height: '35', width: '35' %>
-                <% when 'Culture' %>
+                <% when booking.activity.category.title == 'Culture' %>
                 <%= image_tag "culture-category.png", height: '35', width: '35' %>
                 <% else %>
                 <%= image_tag "logo.png", height: '35', width: '35' %>
                 <% end  %>
               </div>
           </div>
-
+          <img class="category_img"> </img>
         </div>
         <hr>
         <p> "<%= booking.activity.description %>"</p>
         <p> Category : <%= booking.activity.category.title %> </p>
-        <p>Date : <%= booking.activity.created_at.strftime("%Y, %B %d")  %></p>
+        <p>Date :</p>
       </div>
     </div>
-    <br>
     <% end %>
-    <br>
   </div>
 </div>
 
