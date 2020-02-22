@@ -1,3 +1,7 @@
+.container {
+  font-family: 'Roboto';
+}
+
 #box {
   background: white;
   padding: 30px;
@@ -18,7 +22,6 @@
   background-color: #FFFFFF;
   border-style: black;
   padding: 10px 40px;
-  overflow-y: auto;
   flex: 1;
     &:hover {
     transform: scale(1.02);
@@ -34,3 +37,9 @@
   border: 1px solid black;
   justify-content: center;
 }
+
+#avatar-dashboard {
+  background-size: auto;
+  background-color: white;
+}
+

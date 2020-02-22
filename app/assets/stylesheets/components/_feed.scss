@@ -1,7 +1,7 @@
-#scroll {
-  overflow-y: scroll;
-  height: 600px;
-}
+// #scroll {
+//   overflow-y: scroll;
+//   height: 600px;
+// }
 
 #activity_card {
   width: 100%;
@@ -21,7 +21,7 @@
 }
 
 #activity_card h4 {
-  text-align: center;
+  text-align: left;
 }
 
 .card-block {
@@ -30,10 +30,14 @@
 
 .category_img {
   text-align: right;
+  padding-left: 70%;
 }
 
 .row {
   height: 25px;
 }
+
+
+
 
 
