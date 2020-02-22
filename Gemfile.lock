@@ -230,7 +230,7 @@ DEPENDENCIES
   autoprefixer-rails
   bootsnap
   chartkick
-  cloudinary
+  cloudinary (~> 1.12.0)
   devise
   dotenv-rails
   faker
