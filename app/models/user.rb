@@ -9,8 +9,8 @@ class User < ApplicationRecord
   validates :name, presence: true
   validates :time_of_sending, presence: true
   # validates :preferred_day, presence: true
-  # geocoded_by :address
-  # after_validation :geocode, if: :will_save_change_to_address?
+  #geocoded_by :address
+  #after_validation :geocode, if: :will_save_change_to_city?
   has_one_attached :photo
   has_many :activities
   has_many :bookings
