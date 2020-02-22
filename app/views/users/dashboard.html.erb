@@ -53,16 +53,17 @@
         <div>
             <div class="row">
               <div class="col-sm">
-                <% case %>
-                <% when booking.activity.category.title == 'Sports' %>
+                <img class="category_img"> </img>
+                <% case booking.activity.category.title %>
+                <% when 'Sports' %>
                 <%= image_tag "sports-category.png", height: '35', width: '35' %>
-                <% when booking.activity.category.title == 'Reading' %>
+                <% when 'Reading' %>
                 <%= image_tag "reading-category.png", height: '35', width: '35' %>
-                <% when booking.activity.category.title == 'Lifestyle' %>
-                <%= image_tag "sports-category.png", height: '35', width: '35' %>
-                <% when booking.activity.category.title == 'Human' %>
+                <% when 'Lifestyle' %>
+                <%= image_tag "lifestyle-category.png", height: '35', width: '35' %>
+                <% when 'Human' %>
                 <%= image_tag "human-category.png", height: '35', width: '35' %>
-                <% when booking.activity.category.title == 'Culture' %>
+                <% when 'Culture' %>
                 <%= image_tag "culture-category.png", height: '35', width: '35' %>
                 <% else %>
                 <%= image_tag "logo.png", height: '35', width: '35' %>
@@ -72,15 +73,17 @@
              <h4 class="booking-title"> <%= booking.activity.title %></h4>
             </div>
           </div>
-          <img class="category_img"> </img>
+
         </div>
         <hr>
         <p> "<%= booking.activity.description %>"</p>
         <p> Category : <%= booking.activity.category.title %> </p>
-        <p>Date :</p>
+        <p>Date : <%= booking.activity.created_at.strftime("%Y, %B %d")  %></p>
       </div>
     </div>
+    <br>
     <% end %>
+    <br>
   </div>
 </div>
 
