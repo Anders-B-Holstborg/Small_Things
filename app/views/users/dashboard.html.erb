@@ -4,25 +4,51 @@
       <br>
       <div id="openweathermap-widget-18"></div>
         <script>window.myWidgetParam ? window.myWidgetParam : window.myWidgetParam = [];  window.myWidgetParam.push({id: 18,cityid: '2800866',appid: '946bfbf42b2767701ba937cb4802fc37',units: 'metric',containerid: 'openweathermap-widget-18',  });  (function() {var script = document.createElement('script');script.async = true;script.charset = "utf-8";script.src = "//openweathermap.org/themes/openweathermap/assets/vendor/owm/js/weather-widget-generator.js";var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(script, s);  })();</script>
-      <div id="box-dashboard">
-        <div class="mybutton">
-          <%= link_to "View Categories", categories_path %>
+        <br>
+        <br>
+      <div id="avatar-dashboard">
+        <div class="user_avatar">
+          <div class="col">
+            <%= image_tag "", height: '200', width: '200' %>
+          </div>
+          <div class="row">
+            <div class="col">
+                Pending activities
+                <hr>
+                5
+            </div>
+            <div class="col">
+                Completed activities
+                <hr>
+                15
+            </div>
+            <div class="col">
+                Activities created
+                <hr>
+                5
+            </div>
+          </div>
         </div>
-        <div class="mybutton2">
-          <%= link_to "Choose Categories", new_category_path %>
-        </div>
-        <div class="mybutton3">
-          <%= link_to "Create activity!", new_activity_path %>
-        </div>
-    </div>
+    <br>
   </div>
+</div>
+
+
+
+
   <div class="col-sm-4">
     <div class="contact-card flex-row flex-wrap">
       <div class="contact-card__header-image">
         <div class="contact-card__avatar">
         </div>
       </div>
-      <p class="contact-card__name"><%= @current_user.name %></p>
+
+      <p class="contact-card__name"> <%= @current_user.name %></p>
+      <ul>
+        <li class="contact-card__link contact-card__link--mobile"><a><%= @current_user.created_at.strftime("%Y, %B %d") %></a></li>
+        <li class="contact-card__link contact-card__link--mobile"><a><%= @current_user.preferred_day.strftime("%A") if @current_user.preferred_day %></a></li>
+      </ul>
+
       <div id="quote">
         <div class="quote">
           <blockquote>
@@ -41,13 +67,18 @@
   </div>
 
 
-<div class="col-sm" id="scroll">
+
+
+<div class="col-sm">
   <div id="feed">
     <% current_user.bookings.each_with_index do |booking, i | %>
-    <div id="activity_card" class="card flex-row flex-wrap">
+    <div id="activity_card" class="card">
       <div class="card-block" style="filter: opacity( <%=  100 / (i + 1) %>% );">
         <div>
             <div class="row">
+                <div class="col-sm">
+                  <h4 class="booking-title"> <%= booking.activity.title %></h4>
+                </div>
               <div class="col-sm">
                 <% case %>
                 <% when booking.activity.category.title == 'Sports' %>
@@ -64,9 +95,6 @@
                 <%= image_tag "logo.png", height: '35', width: '35' %>
                 <% end  %>
               </div>
-            <div class="col-sm">
-             <h4 class="booking-title"> <%= booking.activity.title %></h4>
-            </div>
           </div>
           <img class="category_img"> </img>
         </div>

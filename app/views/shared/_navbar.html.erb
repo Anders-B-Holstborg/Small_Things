@@ -1,20 +1,17 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <%= link_to dashboard_path(current_user), class: "navbar-brand" do %>
-    <div width=150px; height=100px>
-      <%= image_tag "logo.png" %>
-    </div>
-
-
+    <%= image_tag "logo.png" %>
     <% end %>
-
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
+
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
         <li class="navbar-btn">
+          <button class="btn"><%= link_to "View Categories", categories_path %></button>
           <button class="btn"><%= link_to "Settings", edit_user_registration_path(current_user) %></button>
           <button class="btn"><%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %></button>
         </li>
@@ -23,7 +20,7 @@
             <% if current_user.photo.attached? %>
               <%= cl_image_tag current_user.photo.key, id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <% else %>
-              <%= cl_image_tag "logo_old.png", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+              <%= image_tag "BanderasKitty.jpg", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <% end %>
           </div>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">

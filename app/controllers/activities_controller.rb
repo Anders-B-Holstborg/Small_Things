@@ -20,6 +20,7 @@ class ActivitiesController < ApplicationController
 
   def show
     @activity = find_activity
+    @user = @current_user
   end
 
   def edit
