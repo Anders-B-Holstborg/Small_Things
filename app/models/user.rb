@@ -42,13 +42,11 @@ class User < ApplicationRecord
     find_activity(found_category)
   end
 
-  def find_category(categories)
-    rolled_categories = categories.sample
-    rolled_category = rolled_categories.category
-    if @activity_one
-      while rolled_category == @activity_one.category
-        rolled_categories = categories.sample
-        rolled_category = rolled_categories.category
+  def find_category(user_categories)
+    rolled_category = user_categories.sample.category
+    if @user_activity_one
+      while rolled_category == @user_activity_one.category
+        rolled_category = user_categories.sample.category
       end
     end
     return rolled_category
@@ -56,7 +54,7 @@ class User < ApplicationRecord
 
   def find_activity(category)
     rolled_activity = category.activities.sample
-    unless activity_offerable?(category, rolled_activity)
+    while activity_offerable?(category,rolled_activity)
       rolled_activity = category.activities.sample
     end
     return rolled_activity
@@ -66,12 +64,12 @@ class User < ApplicationRecord
     @user_bookings = self.bookings.where(activity: category.activities)
     activities_hash = Hash.new(0)
     @user_bookings.each do |booking|
-      activity = booking.activity
-      activities_hash[activity] += 1
+      activity_by_count = booking.activity.title
+      activities_hash[activity_by_count] += 1
     end
-    highest_offered_amount = activities_hash.max_by {|_k,v| v}[1]
-    lowest_offered_amount = activities_hash.min_by {|_k,v| v}[1]
-    lowest_offered_amount != highest_offered_amount ? activities_hash[activity] == highest_offered_amount : true
+    highest_offered_amount = activities_hash.max_by {|_k,v| v}[1] unless activities_hash.empty?
+    lowest_offered_amount = activities_hash.min_by {|_k,v| v}[1] unless activities_hash.empty?
+    activities_hash[activity] == highest_offered_amount && lowest_offered_amount != highest_offered_amount
   end
 
   def create_booking(activity)
