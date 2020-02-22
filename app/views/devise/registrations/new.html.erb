@@ -37,7 +37,7 @@
                         required: true,
                         collection: (0..6).to_a.map{|j| [(Date.today + j.days).strftime("%A"), (Date.today + j.days).to_s ]  },
                         hint: "let us know which day you have the most free time! 😉" %>
-            <%= f.input :address,
+            <%= f.input :city,
                         required: true,
                         hint: "By sharing your location, we can customized your experience!" %>
             <div class="form-inputs">
