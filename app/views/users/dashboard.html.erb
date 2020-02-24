@@ -66,12 +66,9 @@
       </div>
   </div>
 
-
-
-
 <div class="col-sm">
   <div id="feed">
-    <% current_user.bookings.each_with_index do |booking, i | %>
+    <% @user_bookings.each_with_index do |booking, i | %> <!-- begin booking iteration-->
     <div id="activity_card" class="card">
       <div class="card-block" style="filter: opacity( <%=  100 / (i + 1) %>% );">
         <div>
@@ -104,7 +101,8 @@
         <p>Date :</p>
       </div>
     </div>
-    <% end %>
+    <br>
+    <% end %> <!-- end booking iteration-->
   </div>
 </div>
 

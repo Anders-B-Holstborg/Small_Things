@@ -2,7 +2,7 @@
 <div style="display:flex;">
   <div>
     <% if @activity_one.photo.attached? %>
-       <%= cl_image_path(@activity_one.photo) %>
+       <%= cl_image_tag(@activity_one.photo.key) %>
     <% else %>
       <%= image_tag "sport.jpeg", id:"img-size", class: "card-img-top" %>
     <% end %>
@@ -14,7 +14,7 @@
   </div>
   <div>
     <% if @activity_two.photo.attached? %>
-       <%= cl_image_path(@activity_one.photo) %>
+       <%= cl_image_tag(@activity_two.photo.key) %>
     <% else %>
       <%= image_tag "sport.jpeg", id:"img-size", class: "card-img-top" %>
     <% end %>

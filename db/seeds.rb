@@ -3,8 +3,7 @@ require 'faker'
 date_time_parse = ["2020-02-04 18:25:00", "2020-02-04 18:00:00", "2020-02-04 20:40:00", "2020-02-04 08:35:00", "2020-02-04 12:12:00", "2020-02-04 00:00:00", "2020-02-04 16:50:00"]
 
 
-admin = User.create!(name: "admin", email: "admin@admin.admin", time_of_sending: Date.parse(date_time_parse.sample), password: "123456", password_confirmation: '123456')
-
+admin = User.create!(name: "admin", email: "admin@admin.admin", time_of_sending: Date.parse(date_time_parse.sample), password: "123456", password_confirmation: '123456', admin: true)
 
 puts "Admin added!"
 
@@ -87,6 +86,6 @@ User.all.each do |user|
     Booking.create!(user_id: user.id, activity_id: @activity.id, status: "completed")
   end
 end
-puts "Success! 10 completed for all!"
+puts "Success! 5 completed for all!"
 
 puts "End of the line!"

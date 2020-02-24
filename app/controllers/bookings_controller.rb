@@ -10,7 +10,6 @@ class BookingsController < ApplicationController
     @booking = Booking.create(user_id: current_user.id, activity_id: activity.id)
   end
 
-
   def accepted_activity
     @booking = current_user.bookings.find(params[:id])
     if @booking
