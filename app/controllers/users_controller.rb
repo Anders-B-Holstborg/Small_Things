@@ -23,10 +23,8 @@ class UsersController < ApplicationController
   def find_user_bookings
     @user_bookings = []
     current_user.bookings.each do |booking|
-        if booking.status == 'accepted'
-          @user_bookings << booking
-        end
-      end
+      @user_bookings << booking if booking.status == 'accepted' || booking.status == 'completed'
+    end
     @user_bookings.sort!.reverse!
   end
 end
