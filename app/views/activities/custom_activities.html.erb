@@ -14,6 +14,7 @@
             <p class="card-text">Duration: <br><%= activity.duration %> minutes.</p>
             <td>
             <button class="btn btn-primary"><%= link_to 'Approve', approve_activity_path(activity), method: :post %></button>
+            <button class="btn btn-primary"><%= link_to 'Deny', deny_activity_path(activity), method: :post %></button>
             </td>
           </div>
         </div>

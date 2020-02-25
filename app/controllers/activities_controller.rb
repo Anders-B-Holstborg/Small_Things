@@ -47,7 +47,7 @@ class ActivitiesController < ApplicationController
     end
   end
 
-  def approve
+  def approve_activity
     @activity = Activity.find_by_id(params[:id])
     @activity.update(status: "approved")
     if @activity.status == "approved"
@@ -55,6 +55,18 @@ class ActivitiesController < ApplicationController
       redirect_to activities_path
     else
       flash[:error] = "Error during approval!"
+      redirect_to activities_path
+    end
+  end
+
+  def deny_activity
+    @activity = Activity.find_by_id(params[:id])
+    @activity.update(status: "denied")
+    if @activity.status == "denied"
+      flash[:success] = "Activity entry refused!"
+      redirect_to activities_path
+    else
+      flash[:error] = "Error during denial!"
       redirect_to activities_path
     end
   end
