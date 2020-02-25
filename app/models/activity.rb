@@ -1,5 +1,5 @@
 class Activity < ApplicationRecord
-  PENDING_STATUS = %w[pending approved default].freeze
+  PENDING_STATUS = %w[pending denied approved default].freeze
   belongs_to :user, optional: true
   belongs_to :category
   has_many :bookings

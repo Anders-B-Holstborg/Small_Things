@@ -3,10 +3,12 @@ Rails.application.routes.draw do
 
   resources :activities do
     member do
-      post :approve
+      post :approve, to: 'activities#approve_activity'
+      post :deny, to: 'activities#deny_activity'
     end
   end
   get 'custom_activities', to: 'activities#custom_activities'
+  get 'activities_for_approval', to: 'activities#activities_for_approval'
   resources :categories do
     resources :user_categories, only: [ :edit, :update, :index, :show ]
   end
