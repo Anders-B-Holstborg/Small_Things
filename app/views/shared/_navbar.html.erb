@@ -14,6 +14,7 @@
           <% if current_user.admin %>
             <button class="btn"><%= link_to "View Pending Activities", custom_activities_path %></button>
           <% end %>
+          <button class="btn"><%= link_to "Create activity!", new_activity_path %></button>
           <button class="btn"><%= link_to "View Categories", categories_path %></button>
           <button class="btn"><%= link_to "Settings", edit_user_registration_path(current_user) %></button>
           <button class="btn"><%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %></button>

@@ -4,7 +4,7 @@
       <% @pending_activities.each do |activity| %> <!-- Begin iteration -->
         <div class="card my-3">
           <% if activity.photo.attached? %>
-             <%= cl_image_tag activity.photo.key %>
+             <%= cl_image_tag activity.photo.key, width: 196 %>
           <% else %>
             <%= image_tag "logo.jpeg", id:"img-size", class: "card-img-top" %>
           <% end %>
