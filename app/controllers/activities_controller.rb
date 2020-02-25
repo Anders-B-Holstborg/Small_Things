@@ -36,10 +36,17 @@ class ActivitiesController < ApplicationController
     end
   end
 
-  def delete
+  def destroy
+    @activity = Activity.find_by_id(params[:id])
+    if current_user == @activity.user
+      @activity.delete
+      redirect_to custom_activities_path, notice: "Activity entry removed."
+    else
+      redirect_to activities_path, notice: "Error during removal!"
+    end
   end
 
-  def custom_activities
+  def activities_for_approval
     if current_user.admin == true
       @pending_activities = Activity.where(status: 'pending')
     else
@@ -47,12 +54,15 @@ class ActivitiesController < ApplicationController
     end
   end
 
+  def custom_activities
+    @activities = Activity.where(user_id: current_user.id, status: 'pending')
+  end
+
   def approve_activity
     @activity = Activity.find_by_id(params[:id])
     @activity.update(status: "approved")
     if @activity.status == "approved"
-      flash[:success] = "Activity successfully approved!"
-      redirect_to activities_path
+      redirect_to activities_path, success: "Activity successfully approved!"
     else
       flash[:error] = "Error during approval!"
       redirect_to activities_path

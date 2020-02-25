@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     end
   end
   get 'custom_activities', to: 'activities#custom_activities'
-  get 'denied_activity', to: 'bookings#denied_activity'
+  get 'activities_for_approval', to: 'activities#activities_for_approval'
   resources :categories do
     resources :user_categories, only: [ :edit, :update, :index, :show ]
   end
