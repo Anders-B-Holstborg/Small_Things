@@ -1,0 +1,23 @@
+<div class="container">
+  <h1>Pending activities:</h1>
+    <div class="card-deck">
+      <% @pending_activities.each do |activity| %> <!-- Begin iteration -->
+        <div class="card my-3">
+          <% if activity.photo.attached? %>
+             <%= cl_image_tag activity.photo.key %>
+          <% else %>
+            <%= image_tag "logo.jpeg", id:"img-size", class: "card-img-top" %>
+          <% end %>
+          <div class="card-body">
+            <h4 class="card-title"><%= activity.title %></h4>
+            <p class="card-text"><%= activity.description %></p>
+            <p class="card-text">Duration: <br><%= activity.duration %> minutes.</p>
+            <td>
+            <button class="btn btn-primary"><%= link_to 'Approve', approve_activity_path(activity), method: :post %></button>
+            </td>
+          </div>
+        </div>
+      <% end %> <!-- end of iteration -->
+    </div>
+  <button class="btn btn-primary"><%= link_to "Back to all activities", activities_path %></button>
+</div>

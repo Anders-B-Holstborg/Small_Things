@@ -14,8 +14,10 @@ class BookingsController < ApplicationController
     @booking = current_user.bookings.find(params[:id])
     if @booking
       @booking.accepted
-      @refused_booking = current_user.bookings.find_by(status: 'offered')
-      @refused_booking.refused
+      @refused_bookings = current_user.bookings.where(status: 'offered')
+      @refused_bookings.each do |booking|
+        booking.refused
+      end
       redirect_to dashboard_path(accepted_booking_id: @booking.id)
     else
       redirect_to dashboard_path

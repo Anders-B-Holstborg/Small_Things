@@ -11,7 +11,7 @@ class ActivitiesController < ApplicationController
   def create
     @activity = Activity.new(activity_params)
     @activity.category = Category.find(1)
-    if @activity.save
+    if @activity.save!
       redirect_to activity_path(@activity)
     else
       render :new
@@ -39,11 +39,31 @@ class ActivitiesController < ApplicationController
   def delete
   end
 
+  def custom_activities
+    if current_user.admin == true
+      @pending_activities = Activity.where(status: 'pending')
+    else
+      render_404
+    end
+  end
+
+  def approve
+    @activity = Activity.find_by_id(params[:id])
+    @activity.update(status: "approved")
+    if @activity.status == "approved"
+      flash[:success] = "Activity successfully approved!"
+      redirect_to activities_path
+    else
+      flash[:error] = "Error during approval!"
+      redirect_to activities_path
+    end
+  end
+
   private
 
   def activity_params
     updated_params = params.require(:activity).permit(:title, :description, :duration, :photo)
-    final_params = updated_params.merge(user_id: current_user.id)
+    final_params = updated_params.merge(user_id: current_user.id, status: 'pending')
   end
 
   def find_activity

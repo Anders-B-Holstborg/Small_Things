@@ -38,12 +38,12 @@ class User < ApplicationRecord
   end
 
   def offer_activity
-    found_category = find_category(@user_categories)
+    found_category = find_category
     find_activity(found_category)
   end
 
-  def find_category(user_categories)
-    rolled_category = user_categories.sample.category
+  def find_category
+    rolled_category = @user_categories.sample.category
     if @user_activity_one
       while rolled_category == @user_activity_one.category
         rolled_category = user_categories.sample.category
@@ -53,7 +53,13 @@ class User < ApplicationRecord
   end
 
   def find_activity(category)
-    rolled_activity = category.activities.sample
+    rolled_activity = category.activities.where().not(status: 'pending').sample
+    check_activity_existance = rolled_activity
+    while check_activity_existance.nil?
+      category = find_category
+      rolled_activity = category.activities.where().not(status: 'pending').sample
+      check_activity_existance = rolled_activity
+    end
     while activity_offerable?(category,rolled_activity)
       rolled_activity = category.activities.sample
     end

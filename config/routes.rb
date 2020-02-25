@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  resources :activities
+  resources :activities do
+    member do
+      post :approve
+    end
+  end
+  get 'custom_activities', to: 'activities#custom_activities'
   resources :categories do
     resources :user_categories, only: [ :edit, :update, :index, :show ]
   end
@@ -12,9 +17,6 @@ Rails.application.routes.draw do
     end
     resources :reviews, only: [ :new, :create ]
   end
-
-
-  get 'users', to: 'users#index'
 
   get 'dashboard', to: 'users#dashboard'
   root to: 'users#dashboard'

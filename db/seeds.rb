@@ -1,16 +1,18 @@
 require 'faker'
 
-date_time_parse = ["2020-02-04 18:25:00", "2020-02-04 18:00:00", "2020-02-04 20:40:00", "2020-02-04 08:35:00", "2020-02-04 12:12:00", "2020-02-04 00:00:00", "2020-02-04 16:50:00"]
+date_time_parse = ["2020-02-04 18:25:00", "2020-02-04 18:00:00", "2020-02-04 20:40:00", "2020-02-04 08:35:00", "2020-02-04 12:12:00",
+ "2020-02-04 00:00:00", "2020-02-04 16:50:00"]
 
 
-admin = User.create!(name: "admin", email: "admin@admin.admin", time_of_sending: Date.parse(date_time_parse.sample), password: "123456", password_confirmation: '123456', admin: true)
+admin = User.create!(name: "admin", email: "admin@admin.admin", city: "Gotham City", time_of_sending: Date.parse(date_time_parse.sample), password: "123456",
+ password_confirmation: '123456', admin: true)
 
 puts "Admin added!"
 
 puts "Creating users..."
 10.times do
-  user = User.create!(name: Faker::Name.name, email: Faker::Internet.unique.email, time_of_sending: Date.parse(date_time_parse.sample), password: "123456",
-    password_confirmation: '123456')
+  user = User.create!(name: Faker::Name.name, email: Faker::Internet.unique.email, city: Faker::Address.city,
+    time_of_sending: Date.parse(date_time_parse.sample), password: "123456", password_confirmation: '123456', admin: false)
 end
 Faker::UniqueGenerator.clear # Clears used values for all generators
 puts "#{User.count - 1} users added!"
@@ -55,17 +57,17 @@ end
 puts "#{@added_cats} categories added!"
 
 puts "Adding activities..."
-@added_acts = 0
+added_acts = 0
 activities.each do |key, value|
   @category = Category.find_by(title: key)
   value.each do |activity_args|
-    activity_args = activity_args.merge(category_id: @category.id)
+    activity_args = activity_args.merge(category_id: @category.id, status: 'default')
     @acts = Activity.create(activity_args)
-    @added_acts += 1
+    added_acts += 1
   end
 end
 
-puts "We did it fam. Added #{@added_acts} activities!"
+puts "We did it fam. Added #{added_acts} activities!"
 
 puts "Adding user category preferences..."
 @users = User.all
@@ -80,12 +82,14 @@ end
 puts "Preferences added!"
 
 puts "Adding completed activities to users..."
+activities_completed = 0
 User.all.each do |user|
-  3.times do
+  5.times do
     @activity = Activity.all.sample
-    Booking.create!(user_id: user.id, activity_id: @activity.id, status: "completed")
+    Booking.create!(user_id: user.id, activity_id: @activity.id, status: "accepted")
+    activities_completed += 1
   end
 end
-puts "Success! 5 completed for all!"
+puts "Success! #{activities_completed} completed for all!"
 
 puts "End of the line!"
