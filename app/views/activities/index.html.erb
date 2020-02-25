@@ -3,7 +3,7 @@
   <% @categories.each do |category| %> <!-- Begin iteration -->
     <h2><i><%= category.title %> :</i></h2>
     <div class="card-deck">
-    <% category.activities.each do |activity| %> <!-- Begin iteration -->
+    <% category.activities.where().not(status: 'pending').where().not(status: 'denied').each do |activity| %> <!-- Begin iteration -->
       <div class="card my-3">
         <% if activity.photo.attached? %>
            <%= cl_image_tag activity.photo.key %>
