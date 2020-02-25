@@ -86,7 +86,7 @@ activities_completed = 0
 User.all.each do |user|
   5.times do
     @activity = Activity.all.sample
-    Booking.create!(user_id: user.id, activity_id: @activity.id, status: "completed")
+    Booking.create!(user_id: user.id, activity_id: @activity.id, status: "accepted")
     activities_completed += 1
   end
 end
