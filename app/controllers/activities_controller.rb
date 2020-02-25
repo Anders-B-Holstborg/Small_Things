@@ -39,6 +39,26 @@ class ActivitiesController < ApplicationController
   def delete
   end
 
+  def custom_activities
+    if current_user.admin == true
+      @pending_activities = Activity.where(status: 'pending')
+    else
+      render_404
+    end
+  end
+
+  def approve
+    @activity = Activity.find_by_id(params[:id])
+    @activity.update(status: "approved")
+    if @activity.status == "approved"
+      flash[:success] = "Activity successfully approved!"
+      redirect_to activities_path
+    else
+      flash[:error] = "Error during approval!"
+      redirect_to activities_path
+    end
+  end
+
   private
 
   def activity_params

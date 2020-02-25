@@ -9,4 +9,8 @@ class ApplicationController < ActionController::Base
     # For additional in app/views/devise/registrations/edit.html.erb
     devise_parameter_sanitizer.permit(:account_update, keys: [:name, :time_of_sending, :prefered_day, :photo, :city])
   end
+
+  def render_404
+    raise ActionController::RoutingError.new('Not Found')
+  end
 end
