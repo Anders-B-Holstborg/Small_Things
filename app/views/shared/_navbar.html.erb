@@ -19,7 +19,7 @@
           <button class="btn"><%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %></button>
         </li>
         <li class="nav-item dropdown">
-          <div class="userimg">
+          <div class="avatarcontact">
             <% if current_user.photo.attached? %>
               <%= cl_image_tag current_user.photo.key, id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <% else %>

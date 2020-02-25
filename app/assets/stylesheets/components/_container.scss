@@ -3,13 +3,19 @@
 }
 
 #box {
+  margin: 30px;
   background: white;
   padding: 30px;
-  border: 1px solid black;
+  border: 1px;
+  border-color: #9399ff;
+  border-radius: 5%;
   justify-content: center;
-  &:hover {
-    border: 3px solid black;
-  }
+}
+
+#box h2 {
+  font-weight: bold;
+  font-size: 34px;
+  color: #9399ff;
 }
 
 

@@ -237,6 +237,7 @@ DEPENDENCIES
   font-awesome-sass (~> 5.6.1)
   geocoder
   jbuilder (~> 2.0)
+  json
   letter_opener
   listen (~> 3.0.5)
   open-weather

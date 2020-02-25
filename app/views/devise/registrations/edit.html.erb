@@ -1,10 +1,14 @@
+<div class="umumi">
+  <span class="text1">EDIT YOUR</span>
+  <span class="text2">PROFILE HERE!</span>
+</div>
+<br>
 <br>
 <br>
 <div class="container">
   <div class="row justify-content-center">
     <div id="box" class="col-xs-16 col-sm-6 col-sm-offset-3">
       <div class="container text-center">
-        <h2>Edit <%= resource_name.to_s.humanize %></h2>
       </div>
       <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
         <%= f.error_notification %>
@@ -24,6 +28,16 @@
                       hint: "we need your current password to confirm your changes",
                       required: true,
                       input_html: { autocomplete: "current-password" } %>
+          <%= f.input :time_of_sending,
+                      required: true,
+                      hint: "let us know at which time you want to receive your daily notif! 😉" %>
+          <%= f.input :preferred_day,
+                      required: true,
+                      collection: (0..6).to_a.map{|j| [(Date.today + j.days).strftime("%A"), (Date.today + j.days).to_s ]  },
+                      hint: "let us know which day you have the most free time! 😉" %>
+          <%= f.input :city,
+                      required: true,
+                      hint: "By sharing your location, we can customized your experience!" %>
         </div>
         <div class="form-actions">
           <%= f.button :submit, "Update" %>
@@ -32,7 +46,7 @@
       <div class="container text-center">
         <h3>Cancel my account</h3>
         <p>Unhappy? 😔 <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure? 😔" }, method: :delete %></p>
-        <%= link_to "Back", :back %>
+        <%= link_to "Back to Dashboard", :back %>
       </div>
     </div>
   </div>
