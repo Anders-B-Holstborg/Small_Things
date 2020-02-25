@@ -36,7 +36,12 @@
   <div class="col-sm-4">
     <div class="contact-card flex-row flex-wrap">
       <div class="contact-card__header-image">
-        <div class="contact-card__avatar">
+        <div id="avatarcontact">
+          <% if current_user.photo.attached? %>
+            <%= cl_image_tag current_user.photo.key %>
+          <% else %>
+            <%= image_tag "BanderasKitty.jpg", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <% end %>
         </div>
       </div>
 

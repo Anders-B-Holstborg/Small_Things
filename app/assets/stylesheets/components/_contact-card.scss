@@ -1,6 +1,13 @@
 
 
 // ---------- C O N T A C T - C A R D ----------
+#avatarcontact img{
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin: auto;
+  background-color: #EEEEEE;
+}
 
 .contact-card{
   overflow: hidden;
@@ -26,15 +33,6 @@
       background-color: #FAFAFA;
     }
 
-    &__avatar{
-      width: 8em;
-      height: 8em;
-      margin: auto;
-      background-image: url("https://pbs.twimg.com/profile_images/1165298803949355008/ZEoHXvQ9_400x400.jpg");
-      background-size: cover;
-      background-color: #EEEEEE;
-      border-radius: 100%;
-    }
 
     &__name{
       margin-top: 3em;
