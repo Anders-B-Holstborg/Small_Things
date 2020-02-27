@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  # after_create :send_welcome_email
+  after_create :send_welcome_email
 
   ALLOWED_DAYS = %w[Monday Tuesday Wednesday Thursday Friday Saturday Sunday].freeze
   # Include default devise modules. Others available are:
@@ -53,11 +53,11 @@ class User < ApplicationRecord
   end
 
   def find_activity(category)
-    rolled_activity = category.activities.where().not(status: 'pending').sample
+    rolled_activity = category.activities.where().not(status: 'pending').where().not(status: 'denied').sample
     check_activity_existance = rolled_activity
     while check_activity_existance.nil?
       category = find_category
-      rolled_activity = category.activities.where().not(status: 'pending').sample
+      rolled_activity = category.activities.where().not(status: 'pending').where().not(status: 'denied').sample
       check_activity_existance = rolled_activity
     end
     while activity_offerable?(category,rolled_activity)
