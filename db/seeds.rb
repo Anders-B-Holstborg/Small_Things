@@ -30,6 +30,7 @@ activities = {
     { title: "Run", description: "Go for a quick run in the vicinity", duration: 15 },
     { title: "Bike Ride", description: "Take a bike ride through the local area or an area of your choice", duration: 15 },
     { title: "Pushups", description: "2-3 sessions of 5-10 pushups", duration: 10 }
+
   ],
   Culture: [
     { title: "Theatre", description: "A few theatres nearby are doing shows. Time to see one of them!", duration: 120 },
@@ -39,7 +40,8 @@ activities = {
   Lifestyle: [
     { title: "Meditation", description: "Find a calm and floofy spot to sit down and attempt to clear your mind for half an hour.", duration: 30 },
     { title: "Niche Cooking", description: "Whip up a healthy dish that you've been wanting to do for a while.", duration: 60 },
-    { title: "Rearrange the Home", description: "Think about something in your home that you would like to change, and do it!", duration: 30 }
+    { title: "Rearrange the Home", description: "Think about something in your home that you would like to change, and do it!", duration: 30 },
+    { title: "Clap hands", description: "Do 10 high fives today", duration: 10 }
   ],
   Human: [
     { title: "Call Relative", description: "Call a relative you have not had contact with in a while.", duration: 20 },
