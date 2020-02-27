@@ -382,7 +382,7 @@ table{
                                <%= image_tag "human.jpeg"  "", height: '250', width: '250' %>
                                <% end %>
                                 <h2> <%= link_to "I will do this !", accepted_activity_booking_url(@booking_one) %> </h2>
-                                <h3><a href="#"> <%= @activity_one.title %> </a></h3>
+                                <h3><%= link_to @activity_one.title, accepted_activity_booking_url(@booking_one) %> </a></h3>
                                 <span><%= @activity_one.description %></span>
                                <p>Duration: <%= @activity_one.duration %> minutes.</p>
                               </div>
@@ -396,7 +396,7 @@ table{
                                <%= image_tag "lifestyle.jpeg"  "", height: '250', width: '260' %>
                                <% end %>
                                 <h2> <%= link_to "I will do this !", accepted_activity_booking_url(@booking_two) %> </h2>
-                                <h3><a href="#"> <%= @activity_two.title %> </a></h3>
+                                <h3><%= link_to @activity_two.title, accepted_activity_booking_url(@booking_two) %> </a></h3>
                                 <span><%= @activity_two.description %></span>
                                <p>Duration: <%= @activity_two.duration %> minutes.</p>
                               </div>
