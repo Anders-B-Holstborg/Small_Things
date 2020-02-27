@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  after_create :send_welcome_email
+  after_create :send_welcome_email, :create_user_categories
 
   ALLOWED_DAYS = %w[Monday Tuesday Wednesday Thursday Friday Saturday Sunday].freeze
   # Include default devise modules. Others available are:
@@ -20,10 +20,17 @@ class User < ApplicationRecord
   has_many :reviews
   has_many :bookings
 
-#  private
+#  private <--- turn on when pushing to production for real
 
   def send_welcome_email
     UserMailer.with(user: self).welcome.deliver_now
+  end
+
+  def create_user_categories
+    @categories = Category.all
+    @categories.each do |category|
+      UserCategory.create!(user_id: self.id, category_id: category.id, time_length_preference: 30, user_category_preference: true)
+    end
   end
 
   def send_activity_email
