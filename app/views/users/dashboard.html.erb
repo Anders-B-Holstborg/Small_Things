@@ -18,7 +18,6 @@
                 5
             </div>
             <div class="col">
-              <%= image_tag "checkmark_green.png", height: '35', width: '35' %>
                 Completed activities
                 <hr>
                 15
@@ -34,40 +33,40 @@
   </div>
 </div>
 
-  <div class="col-sm-4">
-    <div class="contact-card flex-row flex-wrap">
-      <div class="contact-card__header-image">
-        <div id="avatarcontact">
-          <% if current_user.photo.attached? %>
-            <%= cl_image_tag current_user.photo.key %>
-          <% else %>
-            <%= image_tag "BanderasKitty.jpg", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-          <% end %>
-        </div>
-      </div>
-
-      <p class="contact-card__name"> <%= current_user.name %></p>
-      <ul>
-        <li class="contact-card__link contact-card__link--mobile"><a><%= current_user.created_at.strftime("%Y, %B %d") %></a></li>
-        <li class="contact-card__link contact-card__link--mobile"><a><%= current_user.preferred_day.strftime("%A") if @current_user.preferred_day %></a></li>
-      </ul>
-
-      <div id="quote">
-        <div class="quote">
-          <blockquote>
-        <p> <%= @quote %></p>
-        </blockquote>
-        <cite><%= @quote_author %></cite>
-          </div>
-        <br>
+<div class="col-sm-4">
+  <div class="contact-card flex-row flex-wrap">
+    <div class="contact-card__header-image">
+      <div id="avatarcontact">
+        <% if current_user.photo.attached? %>
+          <%= cl_image_tag current_user.photo.key %>
+        <% else %>
+          <%= image_tag "BanderasKitty.jpg", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+        <% end %>
       </div>
     </div>
-        <div class="chart">
-          <br>
-          <br>
-      <%= pie_chart @categories_pie_chart %>
-      </div>
+
+    <p class="contact-card__name"> <%= @current_user.name %></p>
+    <ul>
+      <li class="contact-card__link contact-card__link--mobile"><a><%= @current_user.created_at.strftime("%Y, %B %d") %></a></li>
+      <li class="contact-card__link contact-card__link--mobile"><a><%= @current_user.preferred_day.strftime("%A") if @current_user.preferred_day %></a></li>
+    </ul>
+
+    <div id="quote">
+      <div class="quote">
+        <blockquote>
+      <p> <%= @quote %></p>
+      </blockquote>
+      <cite><%= @quote_author %></cite>
+        </div>
+      <br>
+    </div>
   </div>
+  <div class="chart">
+    <br>
+    <br>
+    <%= pie_chart current_user.accepted_activities.joins(:category).group("categories.title").count %>
+  </div>
+</div>
 
 <div class="col-sm">
   <div id="feed">

@@ -12,7 +12,7 @@ class BookingsController < ApplicationController
 
   def accepted_activity
     @booking = current_user.bookings.find(params[:id])
-    if @booking
+    if @booking.status != 'refused'
       @booking.accepted
       @refused_bookings = current_user.bookings.where(status: 'offered')
       @refused_bookings.each do |booking|

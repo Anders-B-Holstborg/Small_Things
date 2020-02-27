@@ -14,11 +14,13 @@ class User < ApplicationRecord
   has_one_attached :photo
   has_many :activities
   has_many :bookings
+  has_many :accepted_bookings, -> () { where(status: :accepted) }, class_name: "Booking"
+  has_many :accepted_activities, through: :accepted_bookings, source: :activity
+
 
   has_many :user_categories
   has_many :categories, through: :user_categories
   has_many :reviews
-  has_many :bookings
 
 #  private <--- turn on when pushing to production for real
 
