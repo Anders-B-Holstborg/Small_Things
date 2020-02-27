@@ -81,31 +81,33 @@
               <div class="col-sm">
                 <% case %>
                 <% when booking.activity.category.title == 'Sports' %>
-                <%= image_tag "sports-category.png", height: '35', width: '35' %>
+                <%= image_tag "sports-category.png", height: '35', width: '35', position: 'right' %>
                 <% when booking.activity.category.title == 'Reading' %>
-                <%= image_tag "reading-category.png", height: '35', width: '35' %>
+                <%= image_tag "reading-category.png", height: '35', width: '35', position: 'right' %>
                 <% when booking.activity.category.title == 'Lifestyle' %>
-                <%= image_tag "sports-category.png", height: '35', width: '35' %>
+                <%= image_tag "sports-category.png", height: '35', width: '35', position: 'right' %>
                 <% when booking.activity.category.title == 'Human' %>
-                <%= image_tag "human-category.png", height: '35', width: '35' %>
+                <%= image_tag "human-category.png", height: '35', width: '35', position: 'right' %>
                 <% when booking.activity.category.title == 'Culture' %>
-                <%= image_tag "culture-category.png", height: '35', width: '35' %>
+                <%= image_tag "culture-category.png", height: '35', width: '35', position: 'right' %>
                 <% else %>
                 <%= image_tag "logo.png", height: '35', width: '35' %>
                 <% end  %>
               </div>
           </div>
-          <img class="category_img"> </img>
         </div>
         <hr>
         <p> "<%= booking.activity.description %>"</p>
         <p> Category : <%= booking.activity.category.title %> </p>
-        <p>Date :</p>
+      <span class="badge badge-success">DONE</span>
       </div>
+
     </div>
+
     <br>
     <% end %> <!-- end booking iteration-->
   </div>
+
 </div>
 
 <div>
