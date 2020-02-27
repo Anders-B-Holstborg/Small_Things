@@ -11,28 +11,28 @@
       </div>
     </div>
 
-  <div class="col-sm-4">
-    <div class="contact-card flex-row flex-wrap">
-      <div class="contact-card__header-image">
-        <div id="avatarcontact">
-          <% if current_user.photo.attached? %>
-            <%= cl_image_tag current_user.photo.key %>
-          <% else %>
-            <%= image_tag "BanderasKitty.jpg", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-          <% end %>
-        </div>
+<div class="col-sm-4">
+  <div class="contact-card flex-row flex-wrap">
+    <div class="contact-card__header-image">
+      <div id="avatarcontact">
+        <% if current_user.photo.attached? %>
+          <%= cl_image_tag current_user.photo.key %>
+        <% else %>
+          <%= image_tag "BanderasKitty.jpg", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+        <% end %>
       </div>
       <p class="contact-card__name"> <%= @current_user.name %></p>
 
       <div id="openweathermap-widget-18"></div>
       <script>window.myWidgetParam ? window.myWidgetParam : window.myWidgetParam = [];  window.myWidgetParam.push({id: 18,cityid: '2800866',appid: '946bfbf42b2767701ba937cb4802fc37',units: 'metric',containerid: 'openweathermap-widget-18',  });  (function() {var script = document.createElement('script');script.async = true;script.charset = "utf-8";script.src = "//openweathermap.org/themes/openweathermap/assets/vendor/owm/js/weather-widget-generator.js";var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(script, s);  })();</script>
-
-
       <div class="chart">
-          <%= pie_chart @current_user.bookings.group(:activity).count %>
+        <br>
+        <br>
+      <%= pie_chart current_user.accepted_activities.joins(:category).group("categories.title").count %>
       </div>
     </div>
   </div>
+</div>
 
 <div class="col-sm">
   <div id="feed">
@@ -47,31 +47,33 @@
               <div class="col-sm">
                 <% case %>
                 <% when booking.activity.category.title == 'Sports' %>
-                <%= image_tag "sports-category.png", height: '35', width: '35' %>
+                <%= image_tag "sports-category.png", height: '35', width: '35', position: 'right' %>
                 <% when booking.activity.category.title == 'Reading' %>
-                <%= image_tag "reading-category.png", height: '35', width: '35' %>
+                <%= image_tag "reading-category.png", height: '35', width: '35', position: 'right' %>
                 <% when booking.activity.category.title == 'Lifestyle' %>
-                <%= image_tag "sports-category.png", height: '35', width: '35' %>
+                <%= image_tag "sports-category.png", height: '35', width: '35', position: 'right' %>
                 <% when booking.activity.category.title == 'Human' %>
-                <%= image_tag "human-category.png", height: '35', width: '35' %>
+                <%= image_tag "human-category.png", height: '35', width: '35', position: 'right' %>
                 <% when booking.activity.category.title == 'Culture' %>
-                <%= image_tag "culture-category.png", height: '35', width: '35' %>
+                <%= image_tag "culture-category.png", height: '35', width: '35', position: 'right' %>
                 <% else %>
                 <%= image_tag "logo.png", height: '35', width: '35' %>
                 <% end  %>
               </div>
           </div>
-          <img class="category_img"> </img>
         </div>
         <hr>
         <p> "<%= booking.activity.description %>"</p>
         <p> Category : <%= booking.activity.category.title %> </p>
-        <p>Date :</p>
+      <span class="badge badge-success">DONE</span>
       </div>
+
     </div>
+
     <br>
     <% end %> <!-- end booking iteration-->
   </div>
+
 </div>
 
 <div>

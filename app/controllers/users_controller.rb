@@ -27,4 +27,5 @@ class UsersController < ApplicationController
     end
     @user_bookings.sort!.reverse!
   end
+
 end

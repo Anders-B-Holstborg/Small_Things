@@ -42,9 +42,9 @@ td {
 /* What it does: Fixes webkit padding issue. */
 table {
     border-spacing: 0 !important;
-    border-collapse: collapse !important;
     table-layout: fixed !important;
     margin: 0 auto !important;
+    border-color: #8441b6;
 }
 
 /* What it does: Uses a better rendering method when resizing images in IE. */
@@ -173,7 +173,7 @@ body{
 }
 
 a{
-  color: #2f89fc;
+  color: #8441b6;
 }
 
 table{
@@ -222,7 +222,7 @@ table{
 }
 .hero .text h2 span{
   font-weight: 600;
-  color: #2f89fc;
+  color: #8441b6;
 }
 
 
@@ -372,14 +372,14 @@ table{
                       <td valign="top" width="50%">
                         <table role="presentation" cellspacing="0" cellpadding="0" border="20%" width="100%">
                           <tr>
-                            <td style="padding-top: 20px; padding-right: 10px;">
+                            <td style="padding-top: 20px; padding-right: 10px">
                               <div class="text-project" style="text-align: center;">
                                 <div class="row">
                                 <div class="img_mailer">
                                 <% if @activity_one.photo.attached? %>
                                   <%= cl_image_tag(@activity_one.photo.key) %>
                                   <% else %>
-                               <%= image_tag "sport.jpeg"  "", height: '250', width: '250' %>
+                               <%= image_tag "human.jpeg"  "", height: '250', width: '250' %>
                                <% end %>
                                 <h2> <%= link_to "I will do this !", accepted_activity_booking_url(@booking_one) %> </h2>
                                 <h3><a href="#"> <%= @activity_one.title %> </a></h3>
@@ -393,7 +393,7 @@ table{
                                 <% if @activity_two.photo.attached? %>
                                   <%= cl_image_tag(@activity_two.photo.key) %>
                                   <% else %>
-                               <%= image_tag "lifestyle.jpeg"  "", height: '250', width: '250' %>
+                               <%= image_tag "lifestyle.jpeg"  "", height: '250', width: '260' %>
                                <% end %>
                                 <h2> <%= link_to "I will do this !", accepted_activity_booking_url(@booking_two) %> </h2>
                                 <h3><a href="#"> <%= @activity_two.title %> </a></h3>
