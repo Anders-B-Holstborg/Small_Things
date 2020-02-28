@@ -95,8 +95,8 @@ User.where(name: "Bruno").each do |user|
     Booking.create!(user_id: user.id, activity_id: activity.id, status: "refused", date_of_completion: time)
     time -= 1
     activities_completed += 1
-    rating = rand(1..5)
-    Review.create!(user_id: user.id, booking_id: booking.id, rating: rating)
+    #rating = rand(1..5)
+    #Review.create!(user_id: user.id, booking_id: booking.id, rating: rating)
   end
 end
 puts "Success! #{activities_completed} completed for the Captain!"
