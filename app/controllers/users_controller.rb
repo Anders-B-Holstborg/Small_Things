@@ -12,8 +12,9 @@ class UsersController < ApplicationController
     else
       @user_accepted_bookings = find_user_bookings
       @user_approved_activities = current_user.activities.where(status: 'approved')
-      @total_user_activities_completed = user_activities_completed
-      @total_completed_activities = Booking.where(user_id: current_user.id).where(status: 'accepted')
+      @total_user_activities_completed = user_submitted_activities_completed
+      @total_completed_activities = total_completed_activities
+      @percentage_completed_activities = percentage_completed_activities
       url = 'https://quote-garden.herokuapp.com/quotes/random'
       user_serialized = open(url).read
       quote = JSON.parse(user_serialized)
@@ -30,7 +31,7 @@ class UsersController < ApplicationController
     @user_bookings.sort!.reverse!
   end
 
-  def user_activities_completed
+  def user_submitted_activities_completed
     all_user_created_activities = 0
     total_activities = 0
     @user_approved_activities.each do |activity|
@@ -38,5 +39,15 @@ class UsersController < ApplicationController
       total_activities += all_user_created_activities.count
     end
     return total_activities
+  end
+
+  def total_completed_activities
+    Booking.where(user_id: current_user.id).where(status: 'accepted')
+  end
+
+  def percentage_completed_activities
+    completed = total_completed_activities.count.to_f
+    total_offered = Booking.where(user_id: current_user.id).count
+    percentage_completed = (completed / (total_offered / 2) * 100)
   end
 end

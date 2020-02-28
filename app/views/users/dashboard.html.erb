@@ -7,11 +7,22 @@
 
         <div id="feed">
 
-                    <div id="activity_card" class="card">
+          <div id="activity_card" class="card">
             <div class="card-block">
               <div class="row">
                 <div class="col-sm">
                   <h4 class="booking-title">Number of completed activities : <%= @total_completed_activities.count %></h4>
+                </div>
+              </div>
+              <hr>
+            </div>
+          </div>
+
+          <div id="activity_card" class="card">
+            <div class="card-block">
+              <div class="row">
+                <div class="col-sm">
+                  <h4 class="booking-title">Percentage of activities completed : <%= @percentage_completed_activities %> %</h4>
                 </div>
               </div>
               <hr>
