@@ -31,9 +31,11 @@ class UsersController < ApplicationController
 
   def user_activities_completed
     all_user_created_activities = 0
+    total_activities = 0
     @user_approved_activities.each do |activity|
       all_user_created_activities = Booking.where(activity_id: activity.id)
+      total_activities += all_user_created_activities.count
     end
-    return all_user_created_activities
+    return total_activities
   end
 end
