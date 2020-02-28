@@ -13,6 +13,7 @@ class UsersController < ApplicationController
       @user_accepted_bookings = find_user_bookings
       @user_approved_activities = current_user.activities.where(status: 'approved')
       @total_user_activities_completed = user_activities_completed
+      @total_completed_activities = Booking.where(user_id: current_user.id).where(status: 'accepted')
       url = 'https://quote-garden.herokuapp.com/quotes/random'
       user_serialized = open(url).read
       quote = JSON.parse(user_serialized)
