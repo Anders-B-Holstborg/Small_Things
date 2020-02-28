@@ -2,7 +2,7 @@
   <div class="row justify-content-center">
     <div id="box" class="col-xs-16 col-sm-6 col-sm-offset-3">
       <div class="container text-center">
-        <h2>Edit Your Profil!</h2>
+        <h2>Edit Your Profile!</h2>
       </div>
       <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
         <%= f.error_notification %>
@@ -12,23 +12,23 @@
             <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
           <% end %>
           <%= f.input :password,
-                      hint: "leave it blank if you don't want to change it",
+                      hint: "Leave it blank if you don't want to change it",
                       required: false,
                       input_html: { autocomplete: "new-password" } %>
           <%= f.input :password_confirmation,
                       required: false,
                       input_html: { autocomplete: "new-password" } %>
           <%= f.input :current_password,
-                      hint: "we need your current password to confirm your changes",
+                      hint: "We need your current password to confirm your changes",
                       required: true,
                       input_html: { autocomplete: "current-password" } %>
           <%= f.input :time_of_sending,
                       required: true,
-                      hint: "let us know at which time you want to receive your daily notif! 😉" %>
+                      hint: "Let us know at which time you want to receive your daily notif! 😉" %>
           <%= f.input :preferred_day,
                       required: true,
                       collection: (0..6).to_a.map{|j| [(Date.today + j.days).strftime("%A"), (Date.today + j.days).to_s ]  },
-                      hint: "let us know which day you have the most free time! 😉" %>
+                      hint: "Let us know which day you have the most free time! 😉" %>
           <%= f.input :city,
                       required: true,
                       hint: "By sharing your location, we can customized your experience!" %>
