@@ -11,7 +11,7 @@
 
 .contact-card{
   overflow: hidden;
-  height: 70%;
+  height: 106%;
   background-color: #FFFFFF;
   font-family: 'Roboto', sans-serif;
   margin-top: 8px;
@@ -35,10 +35,11 @@
 
 
     &__name{
-      margin-top: 0.5em;
-      margin-bottom: 0.5em;
-      font-size: 1.35rem;
-      font-style: italic;
+      margin-top: 10px;
+      margin-bottom: .5em;
+      font-size: 38px;
+      font-weight: bold;
+
     }
 
     &__link{
