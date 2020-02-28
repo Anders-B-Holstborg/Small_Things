@@ -43,7 +43,8 @@
 
     <div class="col-sm">
       <div id="feed">
-        <% @user_bookings.each_with_index do |booking, i | %> <!-- begin booking iteration-->
+        <% @user_accepted_bookings.each_with_index do |booking, i | %> <!-- begin booking iteration-->
+        <% break if i == 10 %>
         <div id="activity_card" class="card">
           <div class="card-block" style="filter: opacity( <%=  100 / (i + 1) %>% );">
             <div>
