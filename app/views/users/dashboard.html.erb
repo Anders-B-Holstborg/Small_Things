@@ -72,7 +72,7 @@
             <hr>
             <p> "<%= booking.activity.description %>"</p>
             <p> Category : <%= booking.activity.category.title %> </p>
-            <p>Date of completion : <%= booking.date_of_completion %></p>
+            <p>Date of completion : <%= booking.date_of_completion.strftime("%d/%m/%Y") if booking.date_of_completion %></p>
           <span class="badge badge-success">DONE</span>
           </div>
         </div>
