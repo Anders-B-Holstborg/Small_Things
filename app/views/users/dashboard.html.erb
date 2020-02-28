@@ -33,8 +33,8 @@
           <%= pie_chart current_user.accepted_activities.joins(:category).group("categories.title").count %>
           <br>
           <div class="card_count"> Number of completed activities : <b><%= @total_completed_activities.count %></b></div>
-          <div class="card_count"> Percentage of activities completed : <b><%= @percentage_completed_activities %> %</b></div>
-          <div class="card_count"> Activities you've created : <b><%= @user_approved_activities.count %></b></div>
+          <div class="card_count"> Percentage of activities completed : <b><%= @percentage_completed_activities.round(2) %> %</b></div>
+          <div class="card_count"> Number of activities you've created : <b><%= @user_approved_activities.count %></b></div>
            <div class="card_count"> Times other users completed your custom activities : <b><%= @total_user_activities_completed %></b></div>
           </div>
         </div>
