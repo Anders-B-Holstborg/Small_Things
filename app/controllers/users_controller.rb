@@ -10,8 +10,9 @@ class UsersController < ApplicationController
     if !current_user
       redirect_to new_user_registration_path
     else
-      @user = current_user
       @user_accepted_bookings = find_user_bookings
+      @user_approved_activities = current_user.activities.where(status: 'approved')
+      @total_user_activities_completed = user_activities_completed
       url = 'https://quote-garden.herokuapp.com/quotes/random'
       user_serialized = open(url).read
       quote = JSON.parse(user_serialized)
@@ -28,4 +29,11 @@ class UsersController < ApplicationController
     @user_bookings.sort!.reverse!
   end
 
+  def user_activities_completed
+    all_user_created_activities = 0
+    @user_approved_activities.each do |activity|
+      all_user_created_activities = Booking.where(activity_id: activity.id)
+    end
+    return all_user_created_activities
+  end
 end
