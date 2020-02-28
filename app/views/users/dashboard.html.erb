@@ -3,6 +3,9 @@
 
     <div class="col-sm-4">
       <div id="avatar-dashboard" style="background-image: url('https://images.unsplash.com/photo-1465310477141-6fb93167a273?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80')">
+        <div id="boxnumber">
+         <p>Number of completed activities:<%= @total_completed_activities.count %></p>
+        </div>
         <br>
         <div class></div>
         <div class="quote">
@@ -24,7 +27,7 @@
           <%= image_tag "BanderasKitty.jpg", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
         <% end %>
       </div>
-      <p class="contact-card__name"> <%= @current_user.name %></p>
+      <p class="contact-card__name">Welcome! <%= @current_user.name %></p>
 
       <div id="openweathermap-widget-18"></div>
       <script>window.myWidgetParam ? window.myWidgetParam : window.myWidgetParam = [];  window.myWidgetParam.push({id: 18,cityid: '2800866',appid: '946bfbf42b2767701ba937cb4802fc37',units: 'metric',containerid: 'openweathermap-widget-18',  });  (function() {var script = document.createElement('script');script.async = true;script.charset = "utf-8";script.src = "//openweathermap.org/themes/openweathermap/assets/vendor/owm/js/weather-widget-generator.js";var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(script, s);  })();</script>
@@ -40,6 +43,7 @@
       </div>
     </div>
   </div>
+</div>
 </div>
 
     <div class="col-sm">
@@ -82,7 +86,6 @@
       </div>
     </div>
 
-  </div>
 </div>
 
 <div>

@@ -52,6 +52,9 @@
 }
 
 #avatar-dashboard {
+  box-shadow: 0 0 2em rgba(0,0,0,0.125);
+  margin-top: 23px;
+  border-radius: 12px;
   height: 84vh;
   background-size: cover;
   background-position: bottom;
@@ -63,4 +66,14 @@
 
 #img_mailer  {
 border-radius: 20%;
+}
+
+#boxnumber {
+  margin-top: 40px;
+  color: white;
+  display: flex;
+  position: absolute;
+  top: 8px;
+  left: 16px;
+  font-size: 36px;
 }
