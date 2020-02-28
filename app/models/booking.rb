@@ -10,8 +10,8 @@ class Booking < ApplicationRecord
   end
 
   def accepted
+    self.date_of_completion = DateTime.now
     self.update!(status: 'accepted')
-    self.date_of_completion = Date.today
   end
 
   def completed

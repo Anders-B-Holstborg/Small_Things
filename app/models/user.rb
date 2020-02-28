@@ -16,11 +16,19 @@ class User < ApplicationRecord
   has_many :bookings
   has_many :accepted_bookings, -> () { where(status: :accepted) }, class_name: "Booking"
   has_many :accepted_activities, through: :accepted_bookings, source: :activity
-
-
   has_many :user_categories
   has_many :categories, through: :user_categories
   has_many :reviews
+
+  def send_presentation_email
+    @user_activity_one = Activity.find_by(title: "High Fives!")
+    @user_activity_two = Activity.find_by(title: "Pushups")
+    @booking_one = create_booking(@user_activity_one)
+    @booking_two = create_booking(@user_activity_two)
+    UserMailer.with(
+      {user: self, activity_one: @user_activity_one, activity_two: @user_activity_two, booking_one: @booking_one, booking_two: @booking_two}
+    ).offer_activities.deliver_now
+  end
 
 #  private <--- turn on when pushing to production for real
 

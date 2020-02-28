@@ -8,13 +8,15 @@
 }
 
 .navbar-lewagon img {
-height: 80px;
-width: 80px;
-border-radius : 50%;
+  height: 80px;
+  width: 80px;
+  border-radius : 50%;
 }
 
-.navbar-brand img {
-  border-radius: 50%;
+#navbar-brand img {
+  border-radius: 75%;
+  height: 100px;
+  width: 100px;
 }
 
 .btn {
@@ -38,5 +40,5 @@ border-radius : 50%;
 }
 
 .userimg img {
-  border-radius: 80px;
+  border-radius: 50%;
 }

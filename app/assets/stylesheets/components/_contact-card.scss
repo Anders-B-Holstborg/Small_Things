@@ -14,14 +14,14 @@
   height: 106%;
   background-color: #FFFFFF;
   font-family: 'Roboto', sans-serif;
-  margin-top: 16px;
-  border-radius: 1em;
+  margin-top: 8px;
+  border-radius: 0.5em;
   box-shadow: 0 0 2em rgba(0,0,0,0.125);
   border-style: black;
   flex: 1;
 
     &:hover{
-      transform: translateY(-0.5em);
+      transform: translateY(-0.3em);
     }
 
     &__header-image{
@@ -39,6 +39,7 @@
       margin-bottom: .5em;
       font-size: 38px;
       font-weight: bold;
+
     }
 
     &__link{
