@@ -9,8 +9,8 @@
             <%= image_tag "logo.png", id:"img-size", class: "card-img-top",  width: 198 %>
           <% end %>
           <div class="card-body">
-            <p class="card-text"><b>Title : <%= activity.title %></b></p>
-            <p class="card-text">Description : <%= activity.description %></p>
+            <p class="card-text"><b>Title : <br><%= activity.title %></b></p>
+            <p class="card-text">Description : <br><%= activity.description %></p>
             <p class="card-text">Duration: <br><%= activity.duration %> minutes.</p>
             <td>
             <button class="btn btn-primary"><%= link_to 'Remove submission', activity_path(activity), method: :delete %></button>
