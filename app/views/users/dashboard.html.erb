@@ -8,9 +8,9 @@
         </div>
         <br>
         <div class="quote">
-            <blockquote>
-             <p><%= @quote %></p>
-           </blockquote>
+          <blockquote>
+            <p><%= @quote %></p>
+          </blockquote>
           <cite><%= @quote_author %></cite>
         </div>
       </div>
@@ -38,8 +38,7 @@
             <br>
           <%= pie_chart current_user.accepted_activities.joins(:category).group("categories.title").count %>
           <br>
-          <div class="card_count"> Number of completed activities : <b><%= @total_completed_activities.count %></b></div>
-          <div class="card_count"> Percentage of activities completed : <b><%= @percentage_completed_activities.round(2) %> %</b></div>
+          <div class="card_count"> Percentage of offered activities completed : <b><%= @percentage_completed_activities.round(2) %> %</b></div>
           <div class="card_count"> Number of activities you've created : <b><%= @user_approved_activities.count %></b></div>
            <div class="card_count"> Times other users completed your custom activities : <b><%= @total_user_activities_completed %></b></div>
           </div>
@@ -80,15 +79,20 @@
             <hr>
             <p> "<%= booking.activity.description %>"</p>
             <p> Category : <%= booking.activity.category.title %> </p>
+                <p>Average user rating : <% Booking.rating_average(booking.activity).times do %>
+                  <span class="glyphicon glyphicon-star"></span>
+              <% end %>
+                </p>
+
             <p>Date of completion : <%= booking.date_of_completion.strftime("%d/%m/%Y") if booking.date_of_completion %></p>
-          <span class="badge badge-success">DONE</span>
           </div>
         </div>
         <br>
         <% end %> <!-- end booking iteration-->
-</div>
       </div>
     </div>
+
+  </div>
 </div>
 
 <div>

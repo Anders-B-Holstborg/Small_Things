@@ -18,7 +18,6 @@ class User < ApplicationRecord
   has_many :accepted_activities, through: :accepted_bookings, source: :activity
   has_many :user_categories
   has_many :categories, through: :user_categories
-  has_many :reviews
 
   def send_presentation_email
     @user_activity_one = Activity.find_by(title: "High Fives!")
