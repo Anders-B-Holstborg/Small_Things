@@ -1,16 +1,16 @@
-<div class="container">
+<div class="container" style="position: relative; padding-top: 120px;">
   <h1>Your activities pending review:</h1>
     <div class="card-deck">
       <% @activities.each do |activity| %> <!-- Begin iteration -->
         <div class="card my-3">
           <% if activity.photo.attached? %>
-             <%= cl_image_tag activity.photo.key, width: 196 %>
+             <%= cl_image_tag activity.photo.key, width: 198 %>
           <% else %>
-            <%= image_tag "logo.png", id:"img-size", class: "card-img-top" %>
+            <%= image_tag "logo.png", id:"img-size", class: "card-img-top",  width: 198 %>
           <% end %>
           <div class="card-body">
-            <h4 class="card-title"><%= activity.title %></h4>
-            <p class="card-text"><%= activity.description %></p>
+            <p class="card-text"><b>Title : <%= activity.title %></b></p>
+            <p class="card-text">Description : <%= activity.description %></p>
             <p class="card-text">Duration: <br><%= activity.duration %> minutes.</p>
             <td>
             <button class="btn btn-primary"><%= link_to 'Remove submission', activity_path(activity), method: :delete %></button>

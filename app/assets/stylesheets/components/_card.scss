@@ -7,7 +7,7 @@ $grid-breakpoints: (
     xl: 1200px
 ) !default;
 
-$grid-gutter-width: 153px !default;
+$grid-gutter-width: 180px;
 
 // number of cards per line for each breakpoint
 $cards-per-line: (
@@ -22,8 +22,7 @@ $cards-per-line: (
   @media (min-width: $breakpoint) {
     .card-deck .card {
       flex: 0 0 calc(#{100/map-get($cards-per-line, $name)}% - #{$grid-gutter-width});
-      height: 300px;
-      width: 100px;
+      font-size: large;
     }
   }
 }
@@ -38,4 +37,7 @@ $cards-per-line: (
 .card-block {
   font-size: large;
 
+}
+.card-body {
+  text-align: center;
 }
