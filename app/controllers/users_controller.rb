@@ -25,10 +25,12 @@ class UsersController < ApplicationController
 
   def find_user_bookings
     user_bookings = []
+    #current_user.bookings.where(status: "accepted").or(current_user.bookings.where(status: "completed"))
     current_user.bookings.each do |booking|
       user_bookings << booking if booking.status == 'accepted' || booking.status == 'completed'
     end
-    user_bookings.sort!
+    user_bookings.sort_by(&:date_of_completion).reverse
+
   end
 
   def user_submitted_activities_completed
