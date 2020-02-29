@@ -28,8 +28,8 @@
         <% end %>
       </div>
       <p class="contact-card__name">Welcome! <%= @current_user.name %></p>
-
-
+      <hr width="80%" color="blue">
+          <p id="weather">Have a look at the weather:</p>
           <div id="openweathermap-widget-18"></div>
           <script>window.myWidgetParam ? window.myWidgetParam : window.myWidgetParam = [];  window.myWidgetParam.push({id: 18,cityid: '2800866',appid: '946bfbf42b2767701ba937cb4802fc37',units: 'metric',containerid: 'openweathermap-widget-18',  });  (function() {var script = document.createElement('script');script.async = true;script.charset = "utf-8";script.src = "//openweathermap.org/themes/openweathermap/assets/vendor/owm/js/weather-widget-generator.js";var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(script, s);  })();</script>
           <div class="chart">
