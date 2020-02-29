@@ -11,7 +11,7 @@ class ActivitiesController < ApplicationController
   def create
     @activity = Activity.new(activity_params)
     @activity.category = Category.find(1)
-    if @activity.save!
+    if @activity.save
       redirect_to activity_path(@activity)
     else
       render :new
