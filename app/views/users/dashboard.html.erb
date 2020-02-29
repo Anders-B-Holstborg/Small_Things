@@ -7,7 +7,6 @@
          <p>Number of completed activities:<%= @total_completed_activities.count %></p>
         </div>
         <br>
-        <div class></div>
         <div class="quote">
             <blockquote>
              <p><%= @quote %></p>
@@ -28,10 +27,12 @@
         <% end %>
       </div>
       <p class="contact-card__name">Welcome! <%= @current_user.name %></p>
-      <hr width="80%" color="blue">
-          <p id="weather">Have a look at the weather:</p>
+      <hr width="80%" color="#ea7ad7">
+          <p id="weather">Have a look at the <strong>weather:</strong></p>
           <div id="openweathermap-widget-18"></div>
           <script>window.myWidgetParam ? window.myWidgetParam : window.myWidgetParam = [];  window.myWidgetParam.push({id: 18,cityid: '2800866',appid: '946bfbf42b2767701ba937cb4802fc37',units: 'metric',containerid: 'openweathermap-widget-18',  });  (function() {var script = document.createElement('script');script.async = true;script.charset = "utf-8";script.src = "//openweathermap.org/themes/openweathermap/assets/vendor/owm/js/weather-widget-generator.js";var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(script, s);  })();</script>
+          <hr width="80%" color="#ea7ad7">
+          <p id="weather">Have a look at your favorite <strong>Categories:</strong></p>
           <div class="chart">
             <br>
             <br>
@@ -47,6 +48,7 @@
     </div>
 
     <div class="col-sm">
+      <div id="actbox">Completed Activities</div>
       <div id="feed">
         <% @user_accepted_bookings.each_with_index do |booking, i | %> <!-- begin booking iteration-->
         <% break if i == 10 %>
