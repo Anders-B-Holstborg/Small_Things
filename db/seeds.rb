@@ -9,7 +9,7 @@ puts "Admin added!"
 
 puts "Creating victim..."
 1.times do
-  user = User.create!(name: "Bruno", email: "anders@holstborg.dk", city: "Brussels",
+  user = User.create!(name: "Captain Bruno", email: "Brudurbecq@gmail.com", city: "Brussels",
     time_of_sending: Date.parse(date_time_parse.sample), password: "123456", password_confirmation: '123456', admin: false)
 end
 puts "#{User.count - 1} users added!"
@@ -38,6 +38,7 @@ activities = {
     { title: "Meditation", description: "Find a calm and floofy spot to sit down and attempt to clear your mind for half an hour.", duration: 30 },
     { title: "Niche Cooking", description: "Whip up a healthy dish that you've been wanting to do for a while.", duration: 60 },
     { title: "Rearrange the Home", description: "Think about something in your home that you would like to change, and do it!", duration: 30 }
+    { title: "Befriend a Critter", description: "Find an animal of any kind in your vicinity, and make friends with it.", duration: 30 }
   ],
   Human: [
     { title: "High Fives!", description: "Find at least 3 strangers, and offer them a solid high-five!", duration: 60 },

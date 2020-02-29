@@ -74,6 +74,11 @@
             <hr>
             <p> "<%= booking.activity.description %>"</p>
             <p> Category : <%= booking.activity.category.title %> </p>
+                <p>Average user rating : <% Booking.rating_average(booking.activity).times do %>
+                  <span class="glyphicon glyphicon-star"></span>
+              <% end %>
+                </p>
+
             <p>Date of completion : <%= booking.date_of_completion.strftime("%d/%m/%Y") if booking.date_of_completion %></p>
           </div>
         </div>
