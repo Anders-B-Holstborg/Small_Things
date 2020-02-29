@@ -1,5 +1,3 @@
-require 'faker'
-
 date_time_parse = ["2020-02-04 18:25:00", "2020-02-04 18:00:00", "2020-02-04 20:40:00", "2020-02-04 08:35:00", "2020-02-04 12:12:00",
  "2020-02-04 00:00:00", "2020-02-04 16:50:00"]
 
@@ -11,10 +9,9 @@ puts "Admin added!"
 
 puts "Creating victim..."
 1.times do
-  user = User.create!(name: "Bruno", email: "anders@holstborg.dk", city: "Brussels",
+  user = User.create!(name: "Captain Bruno", email: "Brudurbecq@gmail.com", city: "Brussels",
     time_of_sending: Date.parse(date_time_parse.sample), password: "123456", password_confirmation: '123456', admin: false)
 end
-Faker::UniqueGenerator.clear # Clears used values for all generators
 puts "#{User.count - 1} users added!"
 
 # Family Learning
@@ -41,6 +38,7 @@ activities = {
     { title: "Meditation", description: "Find a calm and floofy spot to sit down and attempt to clear your mind for half an hour.", duration: 30 },
     { title: "Niche Cooking", description: "Whip up a healthy dish that you've been wanting to do for a while.", duration: 60 },
     { title: "Rearrange the Home", description: "Think about something in your home that you would like to change, and do it!", duration: 30 }
+    { title: "Befriend a Critter", description: "Find an animal of any kind in your vicinity, and make friends with it.", duration: 30 }
   ],
   Human: [
     { title: "High Fives!", description: "Find at least 3 strangers, and offer them a solid high-five!", duration: 60 },
@@ -90,9 +88,10 @@ User.where(name: "Bruno").each do |user|
   time = DateTime.now
   40.times do
     activity = Activity.all.sample
-    Booking.create!(user_id: user.id, activity_id: activity.id, status: "accepted", date_of_completion: time)
+    rating = rand(1..5)
+    booking = Booking.create!(user_id: user.id, activity_id: activity.id, status: "accepted", date_of_completion: time, rating: rating)
     activity = Activity.all.sample
-    Booking.create!(user_id: user.id, activity_id: activity.id, status: "refused", date_of_completion: time)
+    Booking.create!(user_id: user.id, activity_id: activity.id, status: "refused")
     time -= 1
     activities_completed += 1
   end
