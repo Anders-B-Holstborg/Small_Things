@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(version: 2020_02_27_231312) do
     t.bigint "user_id"
     t.bigint "activity_id"
     t.string "status"
+    t.integer :rating
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.datetime "date_of_completion"
@@ -64,16 +65,6 @@ ActiveRecord::Schema.define(version: 2020_02_27_231312) do
     t.string "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "reviews", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "booking_id"
-    t.integer "rating"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["booking_id"], name: "index_reviews_on_booking_id"
-    t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
   create_table "user_categories", force: :cascade do |t|
@@ -112,8 +103,6 @@ ActiveRecord::Schema.define(version: 2020_02_27_231312) do
   add_foreign_key "activities", "users"
   add_foreign_key "bookings", "activities"
   add_foreign_key "bookings", "users"
-  add_foreign_key "reviews", "bookings"
-  add_foreign_key "reviews", "users"
   add_foreign_key "user_categories", "categories"
   add_foreign_key "user_categories", "users"
 end

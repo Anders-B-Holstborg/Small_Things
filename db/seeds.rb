@@ -1,5 +1,3 @@
-require 'faker'
-
 date_time_parse = ["2020-02-04 18:25:00", "2020-02-04 18:00:00", "2020-02-04 20:40:00", "2020-02-04 08:35:00", "2020-02-04 12:12:00",
  "2020-02-04 00:00:00", "2020-02-04 16:50:00"]
 
@@ -14,7 +12,6 @@ puts "Creating victim..."
   user = User.create!(name: "Bruno", email: "anders@holstborg.dk", city: "Brussels",
     time_of_sending: Date.parse(date_time_parse.sample), password: "123456", password_confirmation: '123456', admin: false)
 end
-Faker::UniqueGenerator.clear # Clears used values for all generators
 puts "#{User.count - 1} users added!"
 
 # Family Learning
@@ -90,13 +87,12 @@ User.where(name: "Bruno").each do |user|
   time = DateTime.now
   40.times do
     activity = Activity.all.sample
-    booking = Booking.create!(user_id: user.id, activity_id: activity.id, status: "accepted", date_of_completion: time)
+    rating = rand(1..5)
+    booking = Booking.create!(user_id: user.id, activity_id: activity.id, status: "accepted", date_of_completion: time, rating: rating)
     activity = Activity.all.sample
-    Booking.create!(user_id: user.id, activity_id: activity.id, status: "refused", date_of_completion: time)
+    Booking.create!(user_id: user.id, activity_id: activity.id, status: "refused")
     time -= 1
     activities_completed += 1
-    #rating = rand(1..5)
-    #Review.create!(user_id: user.id, booking_id: booking.id, rating: rating)
   end
 end
 puts "Success! #{activities_completed} completed for the Captain!"
