@@ -5,6 +5,7 @@
     margin: auto;
   }
   .form {
+    font-size: 20px;
     position: relative;
     z-index: 1;
     background: #baabda;
@@ -16,14 +17,13 @@
   }
   .form input {
     font-family: "Roboto", sans-serif;
+    font-size: 15px;
     outline: 0;
     background: #f2f2f2;
     width: 100%;
     border: 0;
     margin: 0 0 15px;
-    padding: 15px;
     box-sizing: border-box;
-    font-size: 14px;
   }
   .form button {
     font-family: "Roboto", sans-serif;
@@ -46,6 +46,9 @@
     margin: 15px 0 0;
     color: white;
     font-size: 12px;
+  }
+  .form-control {
+    font-size: large;
   }
   .form .message a {
     color: #6807f9;
