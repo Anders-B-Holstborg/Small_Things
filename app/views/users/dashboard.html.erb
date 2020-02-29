@@ -34,8 +34,6 @@
           <hr width="80%" color="#ea7ad7">
           <p id="weather">Have a look at your favorite <strong>Categories:</strong></p>
           <div class="chart">
-            <br>
-            <br>
           <%= pie_chart current_user.accepted_activities.joins(:category).group("categories.title").count %>
           <br>
           <div class="card_count"> Percentage of offered activities completed : <b><%= @percentage_completed_activities.round(2) %> %</b></div>
@@ -80,7 +78,7 @@
             <p> "<%= booking.activity.description %>"</p>
             <p> Category : <%= booking.activity.category.title %> </p>
                 <p>Average user rating : <% Booking.rating_average(booking.activity).times do %>
-                  <span class="glyphicon glyphicon-star"></span>
+                  <span class="glyphicon glyphicon-star" style="color: #6610f2;"></span>
               <% end %>
                 </p>
 
