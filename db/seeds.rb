@@ -37,7 +37,7 @@ activities = {
   Lifestyle: [
     { title: "Meditation", description: "Find a calm and floofy spot to sit down and attempt to clear your mind for half an hour.", duration: 30 },
     { title: "Niche Cooking", description: "Whip up a healthy dish that you've been wanting to do for a while.", duration: 60 },
-    { title: "Rearrange the Home", description: "Think about something in your home that you would like to change, and do it!", duration: 30 }
+    { title: "Rearrange the Home", description: "Think about something in your home that you would like to change, and do it!", duration: 30 },
     { title: "Befriend a Critter", description: "Find an animal of any kind in your vicinity, and make friends with it.", duration: 30 }
   ],
   Human: [
@@ -84,11 +84,11 @@ puts "Preferences added!"
 
 puts "Adding completed activities to Bruno..."
 activities_completed = 0
-User.where(name: "Bruno").each do |user|
+User.where(name: "Captain Bruno").each do |user|
   time = DateTime.now
   40.times do
     activity = Activity.all.sample
-    rating = rand(1..5)
+    rating = rand(2..5)
     booking = Booking.create!(user_id: user.id, activity_id: activity.id, status: "accepted", date_of_completion: time, rating: rating)
     activity = Activity.all.sample
     Booking.create!(user_id: user.id, activity_id: activity.id, status: "refused")
