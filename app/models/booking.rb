@@ -2,7 +2,6 @@ class Booking < ApplicationRecord
   ALLOWED_STATUSES = %w[offered accepted completed not_completed refused].freeze
   belongs_to :user
   belongs_to :activity
-  validates :rating, inclusion: 1..5
   validates :status, inclusion: { in: ALLOWED_STATUSES }
 
   def Booking.rating_average(activity)
